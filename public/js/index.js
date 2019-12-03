@@ -112,3 +112,25 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+//start of BG toggle function for the log-in page
+function cycleBackgrounds() {
+  var index = 0;
+
+  $imageEls = $(".toggle-image"); // Get the images to be cycled.
+
+  setInterval(function() {
+    // Get the next index.  If at end, restart to the beginning.
+    index = index + 1 < $imageEls.length ? index + 1 : 0;
+    // Show the next image.
+    $imageEls.eq(index).addClass("show");
+    // Hide the previous image.
+    $imageEls.eq(index - 1).removeClass("show");
+  }, 2000);
+}
+
+// Document Ready.
+$(function() {
+  cycleBackgrounds();
+});
+//end of BG toggle image functions
