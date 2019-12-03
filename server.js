@@ -35,15 +35,15 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+var models = require("./models");
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/auth")(app);
+require("./routes/auth")(app, passport);
+require("./config/passport/passport.js")(passport, models.user);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
-
-var models = require("./models");
 
 models.sequelize
   .sync()
