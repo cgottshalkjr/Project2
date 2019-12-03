@@ -22,27 +22,27 @@ module.exports = function(passport, user) {
     "local-signup",
     new LocalStrategy(
       {
-        usernameField: "email",
+        usernameField: "username",
         passwordField: "password",
         passReqToCallback: true
       },
-      function(req, email, password, done) {
+      function(req, username, password, done) {
         var generateHash = function(password) {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
         User.findOne({
           where: {
-            email: email
+            username: username
           }
         }).then(function(user) {
           if (user) {
             return done(null, false, {
-              message: "That email is already taken"
+              message: "That username is already taken"
             });
           } else {
             var userPassword = generateHash(password);
             var data = {
-              email: email,
+              username: username,
               password: userPassword,
               firstname: req.body.firstname,
               lastname: req.body.lastname
@@ -59,6 +59,59 @@ module.exports = function(passport, user) {
             });
           }
         });
+      }
+    )
+  );
+
+  //LOCAL SIGNIN
+  passport.use(
+    "local-signin",
+    new LocalStrategy(
+      {
+        // by default, local strategy uses username and password, we will override with email
+
+        usernameField: "username",
+
+        passwordField: "password",
+
+        passReqToCallback: true // allows us to pass back the entire request to the callback
+      },
+
+      function(req, username, password, done) {
+        var User = user;
+
+        var isValidPassword = function(userpass, password) {
+          return bCrypt.compareSync(password, userpass);
+        };
+
+        User.findOne({
+          where: {
+            username: username
+          }
+        })
+          .then(function(user) {
+            if (!user) {
+              return done(null, false, {
+                message: "Username does not exist"
+              });
+            }
+
+            if (!isValidPassword(user.password, password)) {
+              return done(null, false, {
+                message: "Incorrect password."
+              });
+            }
+
+            var userinfo = user.get();
+            return done(null, userinfo);
+          })
+          .catch(function(err) {
+            console.log("Error:", err);
+
+            return done(null, false, {
+              message: "Something went wrong with your Signin"
+            });
+          });
       }
     )
   );

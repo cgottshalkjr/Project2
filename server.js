@@ -18,8 +18,6 @@ app.get("/", function(req, res) {
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 app.use(express.static("public"));
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
@@ -38,9 +36,9 @@ app.set("view engine", "handlebars");
 var models = require("./models");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/auth")(app, passport);
 require("./config/passport/passport.js")(passport, models.user);
+require("./routes/auth")(app, passport);
+// require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
