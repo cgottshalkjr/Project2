@@ -7,7 +7,7 @@
     <div class="card">
         <div class="card-body">
         
-                <form id="signup" name="signup" method="post" action="/signup"></form>
+                <form id="signup" name="signup" method="post" action="/signup">
                 <div class="form-group">
 
                    <h1>*APP TITLE*</h1>
@@ -18,33 +18,36 @@
 
                 <center>
                    <div class="form-group"> 
-                   <span><label for="firstName">First Name</label>
-                    <input name="firstName" type="text" /></span> 
+                   <span><label for="firstname">First Name</label>
+                    <input name="firstname" id="firstname" type="text" /></span> 
                    </div>
                    
                    <div class="form-group">
-                    <span><label for="lastName">Last Name</label>
-                    <input name="lastName" type="text" /></span>
+                    <span><label for="lastname">Last Name</label>
+                    <input name="lastname" id="lastname" type="text" /></span>
                     </div>
                     
                     <div class="form-group">
-                    <span><label for="birthDate">Birthday</label>
-                    <input name="birthDate" type="text" /></span>
+                    <span><label for="birthdate">Birthday</label>
+                    <input name="birthdate" id="birthdate" type="text" /></span>
                     </div>
                     
 
                   <div class="form-group">
-                    <span><label for="userName">User Name</label>
-                    <input name="userName" type="text" /></span>
+                    <span><label for="username">User Name</label>
+                    <input name="username" id="username" type="text" /></span>
                 </div>
 
                 <div class="form-group">
                     <span><label for="password">Password</label>
-                    <input name="password" type="password" /></span>
+                    <input name="password" id="password" type="password" /></span>
 
                 </div>
 
-                 <span><input class="btn" class="form-control" type="submit" value="Create Account" /></span>
+                
+ 
+
+                 <span><input class="btn" class="form-control" type="submit" id="subBtn" value="Sign Up" /></span>
 
                 </center>
 
@@ -53,3 +56,10 @@
         </div>
     </div>
 </div>
+
+{{!-- <script>
+$("#subBtn").on("click", function (event){
+    event.preventDefault();
+    console.log("ksmdkam");
+});
+</script> --}}
