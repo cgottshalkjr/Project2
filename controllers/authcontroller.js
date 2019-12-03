@@ -10,3 +10,10 @@ exports.signin = function(req, res) {
 exports.dashboard = function(req, res) {
   res.render("dashboard");
 };
+
+exports.logout = function(req, res) {
+  // eslint-disable-next-line no-unused-vars
+  req.session.destroy(function(err) {
+    res.redirect("/");
+  });
+};
