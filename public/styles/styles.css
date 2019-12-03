@@ -5,13 +5,16 @@
 .card{
   align-content: center;
   text-align: center;
-  margin: 70px;
+  margin: 80px;
   font-family: 'Josefin Sans', sans-serif;
+  opacity: 0.9;
 
 }
 .card-body{
   background-color: white;
+  
 }
+
 /* Basic background image styling. */
 .background-image {
 	background-position: center center;
