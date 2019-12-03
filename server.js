@@ -7,10 +7,25 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+var passport = require("passport");
+var session = require("express-session");
+var bodyParser = require("body-parser");
+
+app.get("/", function(req, res) {
+  res.send("Welcome to Passport with Sequelize");
+});
+
 // Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Handlebars
 app.engine(
@@ -23,9 +38,23 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
+require("./routes/auth")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
+
+var models = require("./models");
+
+models.sequelize
+  .sync()
+  .then(function() {
+    console.log("Nice! Database looks fine");
+  })
+  .catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!");
+  });
+
+// eslint-disable-next-line no-unused-vars
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
