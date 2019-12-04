@@ -2,15 +2,15 @@ module.exports = function(sequelize, DataTypes) {
   var Drink = sequelize.define("drink", {
     name: {
       type: DataTypes.STRING,
-      allowNull: False
+      allowNull: false
     },
     ingredients: {
       type: DataTypes.TEXT,
-      allowNull: False
+      allowNull: false
     },
     instructions: {
       type: DataTypes.TEXT,
-      allowNull: False
+      allowNull: false
     },
     picture: {
       type: DataTypes.STRING
