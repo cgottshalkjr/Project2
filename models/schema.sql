@@ -20,6 +20,8 @@ CREATE TABLE drinks
 	PRIMARY KEY (id)
 );
 
+
+
 SELECT * FROM cocktailsdb.drinks;
 
 SELECT 

@@ -3,19 +3,18 @@ var db = require("../models");
 module.exports = function(app) {
   app.post("/addDrink", function(req, res) {
     var newDrink = {
-      name: req.body.name,
-      
-      stringredient: req.body.stringredients,
-      stringredients: req.body.stringredients,
-      stringredients: req.body.stringredients,
-      stringredients: req.body.stringredients,
-      stringredients: req.body.stringredients,
-      stringredients: req.body.stringredients,
-      stringredients: req.body.stringredients,
-
-
-      instructions: req.body.intructions,
-      picture: req.body.picture
+      strDrink: req.body.strDrink,
+      strIngredient1: req.body.strIngredient1,
+      strIngredient2: req.body.strIngredient2,
+      strIngredient3: req.body.strIngredient3,
+      strIngredient4: req.body.strIngredient4,
+      strIngredient5: req.body.strIngredient5,
+      strIngredient6: req.body.strIngredient6,
+      strIngredient7: req.body.strIngredient7,
+      strIngredient8: req.body.strIngredient8,
+      strIngredient9: req.body.strIngredient9,
+      strInstructions: req.body.strIntructions,
+      strDrinkThumb: req.body.strDrinkThumb
     };
     db.create(newDrink).then(function(data) {
       res.json(data);
