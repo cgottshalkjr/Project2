@@ -2,7 +2,7 @@
   line-height: 2.5;
 }
 
-.card{
+#signinCard{
   align-content: center;
   text-align: center;
   margin: 80px;
@@ -10,9 +10,13 @@
   opacity: 0.9;
 
 }
-.card-body{
+#signinCardbody{
   background-color: white;
   
+}
+
+.card{
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 /* Basic background image styling. */
