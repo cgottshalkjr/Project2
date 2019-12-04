@@ -1,3 +1,18 @@
+body{
+	background-color: black;
+	background-image: url("/images/logo2.png");
+	background-size: cover;
+}
+/* .navbar{
+	background-image: url("/images/logo.png");
+
+} */
+
+.jumbotron{
+	background-image: url("/images/banner.png");
+	background-repeat: no-repeat;
+	background-color: black;
+}
 .list-group-item {
   line-height: 2.5;
 }
