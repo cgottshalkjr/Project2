@@ -39,6 +39,7 @@ var models = require("./models");
 require("./config/passport/passport.js")(passport, models.user);
 require("./routes/auth")(app, passport);
 // require("./routes/apiRoutes")(app);
+require("./routes/drinksRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
