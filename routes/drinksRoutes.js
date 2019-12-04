@@ -1,7 +1,7 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  app.post("/addDrink", function(req, res) {
+module.exports = function (app) {
+  app.post("/addDrink", function (req, res) {
     var newDrink = {
       strDrink: req.body.strDrink,
       strIngredient1: req.body.strIngredient1,
@@ -16,8 +16,28 @@ module.exports = function(app) {
       strInstructions: req.body.strIntructions,
       strDrinkThumb: req.body.strDrinkThumb
     };
-    db.create(newDrink).then(function(data) {
+    db.create(newDrink).then(function (data) {
       res.json(data);
     });
+  });
+  app.get("/findDrinks", function (req, res) {
+    console.log(db);
+    console.log(db.drink);
+    db.drink
+      .findAll({
+        where: {
+          strIngredient1: db.sequelize.where(
+            db.sequelize.fn("LOWER", db.sequelize.col("strIngredient1")),
+            "LIKE",
+            "%" + "rum" + "%"
+          )
+          // {
+          //   $like: "%" + "rum" + "%"
+          // }
+        }
+      })
+      .then(function(dbDrinks) {
+        res.json(dbDrinks);
+      });
   });
 };
