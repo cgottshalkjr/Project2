@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     strIngredient3: {
       type: DataTypes.TEXT,
       allowNull: true
+      
     },
     strIngredient4: {
       type: DataTypes.TEXT,
