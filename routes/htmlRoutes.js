@@ -11,6 +11,25 @@ module.exports = function(app) {
     });
   });
 
+  // //Load Shelf Page
+  // app.get("/shelf", function(req, res) {
+  //   db.Ingredients.findAll({}).then(function(dbIngredients) {
+  //     res.render("shelf", {
+  //       msg: "Welcome!"
+  //     });
+  //   });
+  // });
+
+  // //Load Favorites Page
+  // app.get("/faves", function(req, res) {
+  //   db.Example.findAll({}).then(function(dbExamples) {
+  //     res.render("index", {
+  //       msg: "Welcome!",
+  //       examples: dbExamples
+  //     });
+  //   });
+  // });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

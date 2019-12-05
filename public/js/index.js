@@ -4,21 +4,6 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
-//ajax call to drinksAPI.  Need to make a variable for ingredient and append it to an input value on the front end !!!!
-// var settings = {
-//   async: true,
-//   crossDomain: true,
-//   url: "https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + ingredient,
-//   method: "GET",
-//   headers: {
-//     "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-//     "x-rapidapi-key": "1276ce657dmsheb3302a97029134p1e10f2jsn380d15512715"
-//   }
-// };
-// $.ajax(settings).done(function(response) {
-//   console.log(response);
-// });
-
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -113,6 +98,8 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
+//------------------------------------------------------------------------------------------------------
+
 //start of BG toggle function for the log-in page
 function cycleBackgrounds() {
   var index = 0;
@@ -134,3 +121,10 @@ $(function() {
   cycleBackgrounds();
 });
 //end of BG toggle image functions
+//-------------------------------------------------------------------------------------------------
+//code to add the ingredients to the user's shelf page 
+$("#addBtn").click(function(){
+  $("#addNew").append($("<li>", {
+  text: $("#itemList").val()
+  }));
+});
