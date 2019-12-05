@@ -1,9 +1,10 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, Sequelize) {
   var Drink = sequelize.define("drink", {
     strDrink: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false
     },
+<<<<<<< HEAD
     strIngredient1: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -31,24 +32,23 @@ module.exports = function(sequelize, DataTypes) {
     },
     strIngredient7: {
       type: DataTypes.TEXT,
+=======
+    strCategory: {
+      type: Sequelize.TEXT,
+>>>>>>> a02b2a4974e5fd905121e8f65ad0a1d8b3b8c47a
       allowNull: true
-    },
-    strIngredient8: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    strIngredient9: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    strInstructions: {
-      type: DataTypes.TEXT,
-      allowNull: false
     },
     strDrinkThumb: {
-      type: DataTypes.STRING
+      type: Sequelize.STRING
+    },
+    strIngredients: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    strInstructions: {
+      type: Sequelize.TEXT,
+      allowNull: false
     }
   });
-
   return Drink;
 };
