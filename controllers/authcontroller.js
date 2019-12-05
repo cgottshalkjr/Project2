@@ -11,6 +11,10 @@ exports.dashboard = function(req, res) {
   res.render("dashboard");
 };
 
+exports.shelf = function(req, res) {
+  res.render("shelf");
+};
+
 exports.logout = function(req, res) {
   // eslint-disable-next-line no-unused-vars
   req.session.destroy(function(err) {
