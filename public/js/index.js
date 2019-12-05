@@ -123,8 +123,10 @@ $(function() {
 //end of BG toggle image functions
 //-------------------------------------------------------------------------------------------------
 //code to add the ingredients to the user's shelf page 
-$("#addBtn").click(function(){
+$("#addBtn").click(function() {
   $("#addNew").append($("<li>", {
-  text: $("#itemList").val()
-  }));
+    text: $("#itemList").val().trim()
+  });
+  );
 });
+//-------------------------------------------------------------------------------------------------
