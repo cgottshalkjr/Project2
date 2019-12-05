@@ -20,12 +20,41 @@ module.exports = function(app) {
       })
       .then(function(dbCabinet) {
         var usersCabinet = [];
-        for(var i=0; i<dbCabinet.length; i++){
+        for (var i = 0; i < dbCabinet.length; i++) {
           usersCabinet.push(dbCabinet[i].ingredients);
         }
         console.log("usersCabinet is: ");
         console.log(usersCabinet);
-        res.json(dbCabinet);
+        db.drink
+          //Return all the drinks that contain the first ingredient in the user's cabinet
+          .findAll({
+            where: {
+              strIngredients: db.sequelize.where(
+                db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+                "LIKE",
+                "%" + usersCabinet[0] + "%"
+              )
+            }
+          })
+          .then(function(dbDrinks) {
+            var recipeIngredients = [];
+            console.log(dbDrinks.length);
+            //For each drink receipe returned from the drinks table, make an array of its ingredients:
+            for(var i = 0; i<dbDrinks.length; i++){
+              console.log(dbDrinks[i].strIngredients);
+              recipeIngredients[i] = dbDrinks[i].strIngredients.trim().split(", ");
+            }
+
+            var resultsArray = [];
+
+            
+
+
+
+            console.log("recipeIngredients is: ");
+            console.log(recipeIngredients);
+            res.json(dbDrinks);
+          });
       });
   });
 

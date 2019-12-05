@@ -122,11 +122,14 @@ $(function() {
 });
 //end of BG toggle image functions
 //-------------------------------------------------------------------------------------------------
-//code to add the ingredients to the user's shelf page 
+//code to add the ingredients to the user's shelf page
 $("#addBtn").click(function() {
-  $("#addNew").append($("<li>", {
-    text: $("#itemList").val().trim()
-  });
+  $("#addNew").append(
+    $("<li>", {
+      text: $("#itemList")
+        .val()
+        .trim()
+    })
   );
 });
 //-------------------------------------------------------------------------------------------------
