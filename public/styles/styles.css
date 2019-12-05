@@ -1,17 +1,22 @@
-body{
-	background-color: black;
-	background-image: url("/images/logo2.png");
+
+.img-thumbnail{
+	background-image: url("../images/cognac.png");
+} 
+
+.container{
+	
 	background-size: cover;
 }
-/* .navbar{
-	background-image: url("/images/logo.png");
-
-} */
+#navBtn{
+	width: 50%;
+	justify-content: center;
+}
 
 .jumbotron{
 	background-image: url("/images/banner.png");
 	background-repeat: no-repeat;
-	background-color: black;
+
+	background-size: cover;
 }
 .list-group-item {
   line-height: 2.5;
@@ -23,7 +28,7 @@ body{
   margin: 80px;
   font-family: 'Josefin Sans', sans-serif;
   opacity: 0.9;
-
+ 
 }
 #signinCardbody{
   background-color: white;
@@ -53,14 +58,14 @@ body{
 
 /* Styles for the specific images. */
 .first-image {
-  background-image: url("../images/vesper.jpg");
+  background-image: url("../images/oluve.jpg");
   z-index: -3;
   opacity: 0;
  
 }
 
 .second-image {
-  background-image: url("../images/negroni.jpg");
+  background-image: url("../images/mult.jpg");
 	z-index: -2;
 	opacity: 0;
 }
@@ -81,4 +86,45 @@ body{
 
 .third-image.show {
 	opacity: 1;
+}
+
+/* for nav bar */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  
+}
+
+.sidenav a:hover {
+  color: white;
+}
+
+
+/*footer */
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#111;;
+  color: white;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
 }

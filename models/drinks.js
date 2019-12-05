@@ -1,21 +1,24 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, Sequelize) {
   var Drink = sequelize.define("drink", {
-    name: {
-      type: DataTypes.STRING,
+    strDrink: {
+      type: Sequelize.STRING,
       allowNull: false
     },
-    ingredients: {
-      type: DataTypes.TEXT,
+    strCategory: {
+      type: Sequelize.TEXT,
+      allowNull: true
+    },
+    strDrinkThumb: {
+      type: Sequelize.STRING
+    },
+    strIngredients: {
+      type: Sequelize.TEXT,
       allowNull: false
     },
-    instructions: {
-      type: DataTypes.TEXT,
+    strInstructions: {
+      type: Sequelize.TEXT,
       allowNull: false
-    },
-    picture: {
-      type: DataTypes.STRING
     }
   });
-
   return Drink;
 };
