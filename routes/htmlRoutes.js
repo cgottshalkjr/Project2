@@ -7,6 +7,12 @@ module.exports = function(app) {
       msg: "Welcome!"
     });
   });
+  app.get("/dashboard", function(req, res) {
+    //db.Example.findAll({}).then(function(dbExamples) {
+    res.render("dashboard", {
+      msg: "Welcome!"
+    });
+  });
 
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
@@ -16,8 +22,6 @@ module.exports = function(app) {
       });
     });
   });
-
-
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

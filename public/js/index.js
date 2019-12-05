@@ -123,13 +123,24 @@ $(function() {
 //end of BG toggle image functions
 //-------------------------------------------------------------------------------------------------
 //code to add the ingredients to the user's shelf page
-$("#addBtn").click(function() {
-  $("#addNew").append(
-    $("<li>", {
-      text: $("#itemList")
-        .val()
-        .trim()
-    })
-  );
+
+$("#addBtn").on("click", function(event) {
+  event.preventDefault();
+  var newIngredient = {
+    ingredients: $("#addNew").val()
+    // userId: req.user.id
+  };
+  console.log(newIngredient);
+  // $.post("/api/addIngredient", newIngredient);
+  // console.log($("#addNew").val());
+  // var addIngredient = $("#addNew").val();
+
+  // var newListItem = $("<li>");
+  // newListItem.text(addIngredient);
+
+  // $("#itemlist").append(newListItem);
+  // console.log("One Item Was Added");
 });
+
 //-------------------------------------------------------------------------------------------------
+
