@@ -1,0 +1,117 @@
+<div class="background-image toggle-image first-image show"></div>
+<div class="background-image toggle-image second-image"></div>
+<div class="background-image toggle-image third-image"></div>
+
+<div class="sidenav">
+    <!-- figure out the page href to put where the # sign is-->
+    <center>
+        <h3 class="text-warning">Welcome, *InsertUser*</h3>
+        <br>
+        <a class="btn btn-outline-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
+        <br>
+        <a class="btn btn-outline-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
+         <br>
+        <a class="btn btn-outline-warning btn-sm" href="#" id="navBtn">Faves</a>
+
+        <br>
+        <a class="btn btn-outline-warning btn-sm" href="/signin" id="navBtn">Log Out</a>
+
+    </center>
+</div>
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid" width="50">
+   </div>
+</div>
+
+
+<div class="container">
+    <center>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" style="background-color: black; color: white;">
+                <div class="card-body">
+                    <p>Search Using The Ingredients On Your Shelf</p>
+                    <p>To Unlock Some of The Most Popular Cocktail Recipes</p>
+                </div>
+            </div>    
+        </div>
+    </div>
+    </center>
+
+</div>
+
+<div id="shelfcard" class="card" style="width: 70rem;">
+  <div class="card-header">
+    Your Ingredients
+  </div>
+  <ul class="list-group list-group-flush" id="itemlist">
+    <li class="list-group-item">Vermouth</li>
+    <li class="list-group-item">Vodka</li>
+    <li class="list-group-item">Limes</li>
+    <li class="list-group-item">Bourbon</li>
+    <li class="list-group-item">Sour Mix</li>
+  </ul>
+    <button type="button" class="btn btn-lg btn-outline-warning">Search Recipes</button>
+
+</div>
+
+
+<style>
+
+    .btn {
+        margin: 0 auto;
+        float: none;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+
+    h1 {
+        text-align: center;
+    }
+
+
+    .card {
+        margin: 0 auto;
+        float: none; 
+        
+    }
+
+    .card-header {
+        font-size: 30px;
+    }
+
+   .sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  
+}
+
+.sidenav a:hover {
+  color: white;
+}
+
+.form {
+    width: 100px;
+}
+
+</style>
+
+
