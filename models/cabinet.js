@@ -1,4 +1,4 @@
-module.exports = function (sequelize, Sequelize) {
+module.exports = function(sequelize, Sequelize) {
   var Cabinet = sequelize.define("cabinet", {
     ingredients: {
       type: Sequelize.STRING,
@@ -6,7 +6,7 @@ module.exports = function (sequelize, Sequelize) {
     },
     createdAt: {
       type: Sequelize.DATE,
-      defaultValue: sequelize.literal("CURRENT_TIMESTAMP()"),
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP()")
     },
     updatedAt: {
       type: Sequelize.DATE,
@@ -14,7 +14,7 @@ module.exports = function (sequelize, Sequelize) {
     }
   });
 
-  Cabinet.associate = function (models) {
+  Cabinet.associate = function(models) {
     Cabinet.belongsTo(models.user, {
       foreignKey: {
         allowNull: false

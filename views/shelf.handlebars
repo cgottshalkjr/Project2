@@ -46,11 +46,9 @@
     Your Ingredients
   </div>
   <ul class="list-group list-group-flush" id="itemlist">
-    <li class="list-group-item">Vermouth</li>
-    <li class="list-group-item">Vodka</li>
-    <li class="list-group-item">Limes</li>
-    <li class="list-group-item">Bourbon</li>
-    <li class="list-group-item">Sour Mix</li>
+   {{#each liquors}}
+   <li class="list-group-item pl-5" data-id="{{id}}">{{ingredients}}</li>
+   {{/each}}
   </ul>
     <button type="button" class="btn btn-lg btn-outline-warning">Search Recipes</button>
 

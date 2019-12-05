@@ -119,15 +119,3 @@ $(function() {
   cycleBackgrounds();
 });
 //end of BG toggle image functions
-
-$("#nav-container").hover(hovering, leaving);
-
-$(document).ready(function() {
-  var hovering = function() {
-    $("nav").show("slide", { direction: "right" }, 1000);
-  };
-  var leaving = function() {
-    $("nav").hide("slide", { direction: "left" }, 1000);
-  };
-  $("#nav-container").hover(hovering, leaving);
-});
