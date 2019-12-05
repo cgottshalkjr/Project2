@@ -11,7 +11,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  app.get("/findDrinks", function(req, res) {
+  app.get("/api/findDrinks", function(req, res) {
     console.log(db);
     console.log(db.drink);
     db.drink
