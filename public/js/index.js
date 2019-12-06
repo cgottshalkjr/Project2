@@ -161,6 +161,7 @@ $(".deleteBtn").on("click", function(event) {
     // Reload the page to get the updated list
     location.reload();
   });
+});
 
 $(document).ready(function() {
 	$.get('/api/addIngredient', function(data) {
