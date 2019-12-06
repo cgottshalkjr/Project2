@@ -30,8 +30,29 @@ exports.dashboard = function(req, res) {
 };
 
 exports.shelf = function(req, res) {
-  res.render("shelf");
+  if (req.user) {
+    db.user
+      .findOne({
+        where: {
+          id: req.user.id
+        }
+      })
+      .then(function(dbUser) {
+        var hbsObject = {
+          user: req.user,
+          username: dbUser.username,
+          firstname: dbUser.firstname,
+          lastname: dbUser.lastname,
+          image: dbUser.image
+        };
+        res.render("shelf", hbsObject);
+      });
+  }
 };
+
+// exports.shelf = function(req, res) {
+//   res.render("shelf");
+// };
 
 exports.logout = function(req, res) {
   // eslint-disable-next-line no-unused-vars
