@@ -36,6 +36,8 @@ module.exports = function(app) {
           //     )
           //   }
           // })
+
+          //Finds and returns all the drinks that contain one of the user's first three ingredients in their cabinet
           .findAll({
             where: db.sequelize.or(
               {
@@ -44,9 +46,6 @@ module.exports = function(app) {
                   "LIKE",
                   "%" + usersCabinet[0] + "%"
                 )
-                // {
-                //   $like: "%" + "rum" + "%"
-                // }
               },
               {
                 strIngredients: db.sequelize.where(
