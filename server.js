@@ -11,9 +11,9 @@ var passport = require("passport");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 
-app.get("/", function(req, res) {
-  res.send("Welcome to Passport with Sequelize");
-});
+// app.get("/", function(req, res) {
+//   res.send("Welcome to Passport with Sequelize");
+// });
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
