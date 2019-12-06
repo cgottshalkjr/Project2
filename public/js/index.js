@@ -194,3 +194,4 @@ $(".deleteBtn").on("click", function(event) {
     location.reload();
   });
 });
+
