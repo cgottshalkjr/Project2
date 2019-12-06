@@ -142,7 +142,7 @@ module.exports = function(app) {
             console.log("resultsArray is ");
             console.log(resultsArray);
 
-            //Creates an array of resultsIds and puts the last element of each drink stored in resultsArray-- that is, the id of that cocktail in the "drinks" table-- into it. 
+            //Creates an array of resultsIds and puts the last element of each drink stored in resultsArray-- that is, the id of that cocktail in the "drinks" table-- into it.
             //In other words, "resultsId" will contain the id of every drink that was a match!
             var resultsIds = [];
             for (var i = 0; i < resultsArray.length; i++) {
