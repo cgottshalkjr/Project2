@@ -10,7 +10,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/myDrinks", function(req, res) {
-    var userId = 2;
+    var userId = 1;
     console.log(db.cabinet);
     db.cabinet
       .findAll({
@@ -159,7 +159,8 @@ module.exports = function(app) {
                 }
               })
               .then(function(results) {
-                res.json(results);
+                // res.json(results);
+                return results;
               });
 
             console.log("usersCabinet is ");
