@@ -16,11 +16,7 @@ module.exports = function(app) {
     db.cabinet
       .findAll({
         where: {
-<<<<<<< HEAD
-          userId: req.user.id
-=======
           userId: userId
->>>>>>> 911e8ca3d57c01e61fdd62a9503a5cac7483474b
         }
       })
       .then(function(dbCabinet) {
@@ -186,22 +182,11 @@ module.exports = function(app) {
     console.log("res is: ");
     // console.log(res);
     var newIngredient = {
-<<<<<<< HEAD
       ingredients: req.body.ingredients,
       userId: 1
-=======
-      ingredients: "vodka"
->>>>>>> 911e8ca3d57c01e61fdd62a9503a5cac7483474b
     };
     db.cabinet.create(newIngredient).then(function(data) {
       res.json(data);
     });
-    // var newIngredient = {
-
-    // }
-    // db.cabinet.create("vodka").then(function(dbCabinet) {
-    //   console.log("It ran!");
-    //   res.json(dbCabinet);
-    // });
   });
 };

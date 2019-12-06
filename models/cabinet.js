@@ -17,10 +17,5 @@ module.exports = function(sequelize, Sequelize) {
     }
   });
 
-  // Cabinet.associate = function(models) {
-  //   Cabinet.belongsTo(models.User, {
-  //     foreignKey: "id"
-  //   });
-  // };
   return Cabinet;
 };
