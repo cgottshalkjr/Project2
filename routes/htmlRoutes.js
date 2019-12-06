@@ -5,7 +5,7 @@ module.exports = function(app) {
     db.cabinet
       .findAll({
         where: {
-          userId: req.user.id
+          userId: "1"
         }
       })
       .then(function(response) {
@@ -13,6 +13,18 @@ module.exports = function(app) {
           liquors: response
         });
       });
+  });
+  app.get("/dashboard", function(req, res) {
+    //db.Example.findAll({}).then(function(dbExamples) {
+    res.render("dashboard", {
+      msg: "Welcome!"
+    });
+  });
+  app.get("/faves", function(req, res) {
+    //db.Example.findAll({}).then(function(dbExamples) {
+    res.render("faves", {
+      msg: "Welcome!"
+    });
   });
 
   app.get("/", function(req, res) {
@@ -23,7 +35,6 @@ module.exports = function(app) {
       });
     });
   });
-
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
