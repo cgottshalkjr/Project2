@@ -87,11 +87,11 @@ module.exports = function(app) {
 
   app.post("/api/addIngredient", function(req, res) {
     console.log("It ran! req is: ");
-    console.log(req);
+    console.log(req.body);
     console.log("res is: ");
-    console.log(res);
+    // console.log(res);
     var newIngredient = {
-      ingredients: req.ingredients,
+      ingredients: req.body.ingredients,
       userId: 1
     };
     db.cabinet.create(newIngredient).then(function(data) {

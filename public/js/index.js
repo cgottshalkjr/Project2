@@ -131,15 +131,25 @@ $("#addBtn").on("click", function(event) {
     userId: 1
   };
   console.log(newIngredient);
-  $.post("/api/addIngredient", newIngredient);
-  // console.log($("#addNew").val());
-  // var addIngredient = $("#addNew").val();
+  $.ajax({
+    url: "/api/addIngredient",
+    method: "POST",
+    data: newIngredient
+   }, function(err, data) {
+    if(err)
+      console.log(err);
 
-  // var newListItem = $("<li>");
-  // newListItem.text(addIngredient);
+    console.log(data);
+    console.log($("#addNew").val());
+  var addIngredient = $("#addNew").val();
 
-  // $("#itemlist").append(newListItem);
-  // console.log("One Item Was Added");
+  var newListItem = $("<li>");
+  newListItem.text(addIngredient);
+
+  $("#itemlist").append(newListItem);
+  console.log("One Item Was Added");
+  });
+  
 });
 
 //-------------------------------------------------------------------------------------------------

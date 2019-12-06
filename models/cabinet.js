@@ -1,11 +1,7 @@
 module.exports = function(sequelize, Sequelize) {
   var Cabinet = sequelize.define("cabinet", {
     ingredients: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      validate: {
-        notNull: { args: true, msg: "You must enter an ingredient" }
-      }
+      type: Sequelize.STRING
     },
     createdAt: {
       type: Sequelize.DATE,
@@ -14,15 +10,17 @@ module.exports = function(sequelize, Sequelize) {
     updatedAt: {
       type: Sequelize.DATE,
       defaultValue: sequelize.literal("CURRENT_TIMESTAMP()")
+    },
+    userId: {
+      type: Sequelize.INTEGER,
+      allowNull: false
     }
   });
 
-  Cabinet.associate = function(models) {
-    Cabinet.belongsTo(models.user, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Cabinet.associate = function(models) {
+  //   Cabinet.belongsTo(models.User, {
+  //     foreignKey: "id"
+  //   });
+  // };
   return Cabinet;
 };

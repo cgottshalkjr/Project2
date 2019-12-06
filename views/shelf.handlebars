@@ -1,3 +1,5 @@
+
+
 <div class="sidenav">
     <!-- figure out the page href to put where the # sign is-->
     <center>
@@ -6,7 +8,7 @@
         <a class="btn btn-outline-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
         <br>
         <a class="btn btn-outline-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
-         <br>
+        <br>
         <a class="btn btn-outline-warning btn-sm" href="/faves" id="navBtn">Faves</a>
 
         <br>
@@ -17,63 +19,45 @@
 
 <div class="container">
     <div class="jumbotron jumbotron-fluid" width="50">
-   </div>
-</div>
-
-
-<div class="container">
-    <center>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card" style="background-color: black; color: white;">
-                <div class="card-body">
-                    <h1>Your Shelf</h1>
-                    
-                </div>
-            </div>    
-        </div>
     </div>
-    </center>
+</div>
+<div id="shelfcard" class="card" style="width: 70rem;">
+    <div class="card-header">
+        <center>
+            Your Shelf
+
+    </div>
+
+    <ul class="list-group list-group-flush" id="itemlist">
+        {{#each liquors}}
+        <li class="list-group-item pl-5" data-id="{{id}}">{{ingredients}}</li>
+        {{/each}}
+    </ul>
+
 
 </div>
-
-
-
-<div id="shelfcard" class="card" style="width: 70rem;">
-  <div class="card-header">
-    Cocktail ingredients
-  </div>
- 
-  <ul class="list-group list-group-flush" id="itemlist">
-   {{#each liquors}}
-   <li class="list-group-item pl-5" data-id="{{id}}">{{ingredients}}</li>
-   {{/each}}
-  </ul>
+</center>
+<center>
     <span><button type="button" class="btn btn-lg btn-outline-warning">Search Recipes</button></span>
 
-     <div>
- <form class="form">
-               <span> <input class="form" type="search" placeholder="Search" aria-label="Search" id="addNew"> </span>
-                <br>
-                <br>
-               <span> <button class="btn btn-outline-warning" id="addBtn">Add</button></span>
-                <br>
-            </form>
-            </div>
-    
+    <div>
+        <form class="form">
+            <span> <input class="form" type="search" placeholder="Search" aria-label="Search" id="addNew"> </span>
+            <br>
+            <span> <button class="btn btn-outline-warning" id="addBtn">Add</button></span>
+            <br>
+        </form>
+    </div>
 
-</div>
-    
-
+</center>
 
 <style>
-
     .btn {
         margin: 0 auto;
-        float: none;
         padding: 10px;
         margin-bottom: 10px;
         margin-top: 10px;
+        align-items: center;
     }
 
 
@@ -84,17 +68,14 @@
 
     .card {
         margin: 0 auto;
-        float: none; 
-        
+        float: none;
+
     }
 
     .card-header {
-        font-size: 30px;
+        font-size: 40px;
     }
-
-
-
-
+    #shelf-card{
+        background-image: url("../images/bar.jpg");
+    }
 </style>
-
-
