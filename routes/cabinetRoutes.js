@@ -1,16 +1,15 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  app.get("/api/ingredients", function(req, res) {
+module.exports = function (app) {
+  app.get("/api/ingredients", function (req, res) {
     console.log(db.cabinet);
-    console.log("Hello!");
-    db.cabinet.findAll({}).then(function(dbCabinet) {
+    db.cabinet.findAll({}).then(function (dbCabinet) {
       res.json(dbCabinet);
     });
   });
 
-  app.get("/api/myDrinks", function(req, res) {
-    var userId = 2;
+  app.get("/api/myDrinks", function (req, res) {
+    var userId = 1;
     console.log(db.cabinet);
     db.cabinet
       .findAll({
@@ -18,7 +17,7 @@ module.exports = function(app) {
           userId: userId
         }
       })
-      .then(function(dbCabinet) {
+      .then(function (dbCabinet) {
         var usersCabinet = [];
         for (var i = 0; i < dbCabinet.length; i++) {
           usersCabinet.push(dbCabinet[i].ingredients.toLowerCase());
@@ -26,16 +25,16 @@ module.exports = function(app) {
         console.log("usersCabinet is: ");
         console.log(usersCabinet);
         db.drink
-        //Return all the drinks that contain the first ingredient in the user's cabinet
-        // .findAll({
-        //   where: {
-        //     strIngredients: db.sequelize.where(
-        //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-        //       "LIKE",
-        //       "%" + usersCabinet[0] + "%"
-        //     )
-        //   }
-        // })
+          //Return all the drinks that contain the first ingredient in the user's cabinet
+          // .findAll({
+          //   where: {
+          //     strIngredients: db.sequelize.where(
+          //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //       "LIKE",
+          //       "%" + usersCabinet[0] + "%"
+          //     )
+          //   }
+          // })
 
           //Finds and returns all the drinks that contain one of the user's first three ingredients in their cabinet
           // .findAll({
@@ -64,7 +63,7 @@ module.exports = function(app) {
           //   )
           // })
           .findAll({})
-          .then(function(dbDrinks) {
+          .then(function (dbDrinks) {
             var recipeIngredients = [];
             console.log(dbDrinks.length);
             //For each drink receipe returned from the drinks table, make an array of its ingredients:
@@ -124,7 +123,7 @@ module.exports = function(app) {
                   resultsArray.push(cocktail);
                 }
               }
-              //If there are 4 or more ingredients in the cocktail, the user must have at least 4 of the ingredients in their cabinet for the cocktail to be returned.
+              //If there are 4 or more ingredients in the cocktail, the user must have all the ingredients in order for the drink to be returned
               else if (cocktail.length > 4) {
                 var howManyMatches = 0;
                 for (var j = 0; j < cocktail.length - 1; j++) {
@@ -132,8 +131,7 @@ module.exports = function(app) {
                     howManyMatches++;
                   }
                 }
-                //If you ever want to only return drinks for which the user has ALL the ingredients, change the below line to "if (howManyMatches === (cocktail.length - 1))"
-                if (howManyMatches > 4) {
+                if (howManyMatches === cocktail.length - 1) {
                   resultsArray.push(cocktail);
                 }
               }
@@ -158,7 +156,7 @@ module.exports = function(app) {
                   id: resultsIds
                 }
               })
-              .then(function(results) {
+              .then(function (results) {
                 res.json(results);
               });
 
@@ -176,7 +174,7 @@ module.exports = function(app) {
   //   });
   // });
 
-  app.post("/api/addIngredient", function(req, res) {
+  app.post("/api/addIngredient", function (req, res) {
     console.log("It ran! req is: ");
     console.log(req.body);
     console.log("res is: ");
@@ -185,7 +183,7 @@ module.exports = function(app) {
       ingredients: req.body.ingredients,
       userId: 1
     };
-    db.cabinet.create(newIngredient).then(function(data) {
+    db.cabinet.create(newIngredient).then(function (data) {
       res.json(data);
     });
     // var newIngredient = {
