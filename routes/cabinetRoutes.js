@@ -12,7 +12,6 @@ module.exports = function(app) {
   app.get("/api/myDrinks", function(req, res) {
     var userId = 2;
     console.log(db.cabinet);
-    console.log("Hello!");
     db.cabinet
       .findAll({
         where: {
