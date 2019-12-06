@@ -10,12 +10,13 @@ module.exports = function(app) {
   });
 
   app.get("/api/myIngredients", function(req, res) {
+    var userId = 1;
     console.log(db.cabinet);
     console.log("Hello!");
     db.cabinet
       .findAll({
         where: {
-          userId: "1"
+          userId: userId
         }
       })
       .then(function(dbCabinet) {
@@ -73,7 +74,7 @@ module.exports = function(app) {
                 .trim()
                 .toLowerCase()
                 .split(", ");
-              //Adds the drink ID to the end of the array of ingredients
+              //Adds the id of the cocktail (from the "drinks" table) to the end of the array of ingredients
               recipeIngredients[i].push(dbDrinks[i].id);
             }
 
@@ -135,28 +136,33 @@ module.exports = function(app) {
                   resultsArray.push(cocktail);
                 }
               }
-
-              // }
-              //   }
-
-              //   console.log("resultsArray is ");
-              //   console.log(resultsArray);
-
-              for (var j = 0; j < recipeIngredients[i].length; j++) {
-                //    console.log("cocktail[" + j + "] is: ");
-                //   console.log(cocktail[j]);
-              }
             }
 
             console.log("resultsArray is ");
             console.log(resultsArray);
 
+            //Creates an array of resultsIds and puts the last element of each drink stored in resultsArray-- that is, the id of that cocktail in the "drinks" table-- into it. 
+            //In other words, "resultsId" will contain the id of every drink that was a match!
+            var resultsIds = [];
+            for (var i = 0; i < resultsArray.length; i++) {
+              resultsIds[i] = resultsArray[i].pop();
+            }
+            console.log("resultsIds is ");
+            console.log(resultsIds);
+
+            //Sends a query to return all the drinks whose ID is contained in resultsIds
+            db.drink
+              .findAll({
+                where: {
+                  id: resultsIds
+                }
+              })
+              .then(function(results) {
+                res.json(results);
+              });
+
             console.log("usersCabinet is ");
             console.log(usersCabinet);
-
-            //    console.log("recipeIngredients is: ");
-            //     console.log(recipeIngredients);
-            res.json(resultsArray);
           });
       });
   });
