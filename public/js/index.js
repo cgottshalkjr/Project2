@@ -127,11 +127,11 @@ $(function() {
 $("#addBtn").on("click", function(event) {
   event.preventDefault();
   var newIngredient = {
-    ingredients: $("#addNew").val()
-    // userId: req.user.id
+    ingredients: $("#addNew").val(),
+    userId: 1
   };
   console.log(newIngredient);
-  // $.post("/api/addIngredient", newIngredient);
+  $.post("/api/addIngredient", newIngredient);
   // console.log($("#addNew").val());
   // var addIngredient = $("#addNew").val();
 

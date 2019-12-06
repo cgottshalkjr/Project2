@@ -2,7 +2,10 @@ module.exports = function(sequelize, Sequelize) {
   var Cabinet = sequelize.define("cabinet", {
     ingredients: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notNull: { args: true, msg: "You must enter an ingredient" }
+      }
     },
     createdAt: {
       type: Sequelize.DATE,

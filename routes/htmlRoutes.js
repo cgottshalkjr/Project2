@@ -5,7 +5,7 @@ module.exports = function(app) {
     db.cabinet
       .findAll({
         where: {
-          userId: req.user.id
+          userId: "1"
         }
       })
       .then(function(response) {
@@ -17,6 +17,12 @@ module.exports = function(app) {
   app.get("/dashboard", function(req, res) {
     //db.Example.findAll({}).then(function(dbExamples) {
     res.render("dashboard", {
+      msg: "Welcome!"
+    });
+  });
+  app.get("/faves", function(req, res) {
+    //db.Example.findAll({}).then(function(dbExamples) {
+    res.render("faves", {
       msg: "Welcome!"
     });
   });

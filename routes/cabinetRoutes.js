@@ -15,7 +15,7 @@ module.exports = function(app) {
     db.cabinet
       .findAll({
         where: {
-          userId: "1"
+          userId: req.user.id
         }
       })
       .then(function(dbCabinet) {
@@ -92,7 +92,7 @@ module.exports = function(app) {
     console.log(res);
     var newIngredient = {
       ingredients: req.ingredients,
-      userId: req.user.id
+      userId: 1
     };
     db.cabinet.create(newIngredient).then(function(data) {
       res.json(data);
