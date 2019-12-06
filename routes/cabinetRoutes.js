@@ -1,15 +1,15 @@
 var db = require("../models");
 
-module.exports = function (app) {
-  app.get("/api/ingredients", function (req, res) {
+module.exports = function(app) {
+  app.get("/api/ingredients", function(req, res) {
     console.log(db.cabinet);
     console.log("Hello!");
-    db.cabinet.findAll({}).then(function (dbCabinet) {
+    db.cabinet.findAll({}).then(function(dbCabinet) {
       res.json(dbCabinet);
     });
   });
 
-  app.get("/api/myIngredients", function (req, res) {
+  app.get("/api/myIngredients", function(req, res) {
     console.log(db.cabinet);
     console.log("Hello!");
     db.cabinet
@@ -18,7 +18,7 @@ module.exports = function (app) {
           userId: "1"
         }
       })
-      .then(function (dbCabinet) {
+      .then(function(dbCabinet) {
         var usersCabinet = [];
         for (var i = 0; i < dbCabinet.length; i++) {
           usersCabinet.push(dbCabinet[i].ingredients.toLowerCase());
@@ -27,22 +27,53 @@ module.exports = function (app) {
         console.log(usersCabinet);
         db.drink
           //Return all the drinks that contain the first ingredient in the user's cabinet
+          // .findAll({
+          //   where: {
+          //     strIngredients: db.sequelize.where(
+          //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //       "LIKE",
+          //       "%" + usersCabinet[0] + "%"
+          //     )
+          //   }
+          // })
           .findAll({
-            where: {
-              strIngredients: db.sequelize.where(
-                db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-                "LIKE",
-                "%" + usersCabinet[0] + "%"
-              )
-            }
+            where: db.sequelize.or(
+              {
+                strIngredients: db.sequelize.where(
+                  db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+                  "LIKE",
+                  "%" + usersCabinet[0] + "%"
+                )
+                // {
+                //   $like: "%" + "rum" + "%"
+                // }
+              },
+              {
+                strIngredients: db.sequelize.where(
+                  db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+                  "LIKE",
+                  "%" + usersCabinet[1] + "%"
+                )
+              },
+              {
+                strIngredients: db.sequelize.where(
+                  db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+                  "LIKE",
+                  "%" + usersCabinet[2] + "%"
+                )
+              }
+            )
           })
-          .then(function (dbDrinks) {
+          .then(function(dbDrinks) {
             var recipeIngredients = [];
             console.log(dbDrinks.length);
             //For each drink receipe returned from the drinks table, make an array of its ingredients:
             for (var i = 0; i < dbDrinks.length; i++) {
               console.log(dbDrinks[i].strIngredients);
-              recipeIngredients[i] = dbDrinks[i].strIngredients.trim().toLowerCase().split(", ");
+              recipeIngredients[i] = dbDrinks[i].strIngredients
+                .trim()
+                .toLowerCase()
+                .split(", ");
               //Adds the drink ID to the end of the array of ingredients
               recipeIngredients[i].push(dbDrinks[i].id);
             }
@@ -52,6 +83,26 @@ module.exports = function (app) {
 
             for (var i = 0; i < recipeIngredients.length; i++) {
               var cocktail = recipeIngredients[i];
+
+              //Most recipes say "light rum", "dark rum", or "white rum", which causes our .includes a few lines down to return false, so here we're ensuring that if "rum" is in "userCabinet", drinks with light, dark, or white rum will also be returned
+              for (var k = 0; k < cocktail.length; k++) {
+                if (
+                  cocktail[k] === "light rum" &&
+                  !usersCabinet.includes("light rum")
+                ) {
+                  cocktail[k] = "rum";
+                } else if (
+                  cocktail[k] === "dark rum" &&
+                  !usersCabinet.includes("dark rum")
+                ) {
+                  cocktail[k] = "rum";
+                } else if (
+                  cocktail[k] === "white rum" &&
+                  !usersCabinet.includes("white rum")
+                ) {
+                  cocktail[k] = "rum";
+                }
+              }
 
               //if there are only 2 ingredients in the cocktail, both of them must be in the user's cabinet in order for the drink to be returned.
               if (cocktail.length === 3) {
@@ -76,7 +127,7 @@ module.exports = function (app) {
               //If there are 4 or more ingredients in the cocktail, the user must have at least 4 of the ingredients in their cabinet for the cocktail to be returned.
               else if (cocktail.length > 4) {
                 var howManyMatches = 0;
-                for (var j = 0; j < (cocktail.length - 1); j++) {
+                for (var j = 0; j < cocktail.length - 1; j++) {
                   if (usersCabinet.includes(cocktail[j])) {
                     howManyMatches++;
                   }
@@ -104,9 +155,6 @@ module.exports = function (app) {
             console.log("usersCabinet is ");
             console.log(usersCabinet);
 
-
-
-
             //    console.log("recipeIngredients is: ");
             //     console.log(recipeIngredients);
             res.json(resultsArray);
@@ -122,7 +170,7 @@ module.exports = function (app) {
   //   });
   // });
 
-  app.post("/api/addIngredient", function (req, res) {
+  app.post("/api/addIngredient", function(req, res) {
     console.log("It ran! req is: ");
     console.log(req);
     console.log("res is: ");
@@ -130,7 +178,7 @@ module.exports = function (app) {
     var newIngredient = {
       ingredients: "vodka"
     };
-    db.cabinet.create(newIngredient).then(function (data) {
+    db.cabinet.create(newIngredient).then(function(data) {
       res.json(data);
     });
     // var newIngredient = {

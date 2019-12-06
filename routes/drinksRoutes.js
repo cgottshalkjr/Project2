@@ -16,27 +16,27 @@ module.exports = function(app) {
     console.log(db.drink);
     db.drink
       .findAll({})
-      // .findAll({
-      //   where: db.sequelize.or(
-      //     {
-      //       strIngredients: db.sequelize.where(
-      //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-      //         "LIKE",
-      //         "%" + "rum" + "%"
-      //       )
-      //       // {
-      //       //   $like: "%" + "rum" + "%"
-      //       // }
-      //     },
-      //     {
-      //       strIngredients: db.sequelize.where(
-      //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-      //         "LIKE",
-      //         "%" + "vodka" + "%"
-      //       )
-      //     }
-      //   )
-      // })
+      .findAll({
+        where: db.sequelize.or(
+          {
+            strIngredients: db.sequelize.where(
+              db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+              "LIKE",
+              "%" + "rum" + "%"
+            )
+            // {
+            //   $like: "%" + "rum" + "%"
+            // }
+          },
+          {
+            strIngredients: db.sequelize.where(
+              db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+              "LIKE",
+              "%" + "vodka" + "%"
+            )
+          }
+        )
+      })
       .then(function(dbDrinks) {
         res.json(dbDrinks);
         console.log("Length: " + dbDrinks.length);
