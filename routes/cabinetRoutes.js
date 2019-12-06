@@ -1,18 +1,13 @@
 var db = require("../models");
 
-module.exports = function (app) {
-  app.get("/api/ingredients", function (req, res) {
+module.exports = function(app) {
+  app.get("/api/ingredients", function(req, res) {
     console.log(db.cabinet);
-    db.cabinet.findAll({}).then(function (dbCabinet) {
+    db.cabinet.findAll({}).then(function(dbCabinet) {
       res.json(dbCabinet);
     });
   });
-
-<<<<<<< HEAD
   app.get("/api/myDrinks", function(req, res) {
-=======
-  app.get("/api/myDrinks", function (req, res) {
->>>>>>> 30c8b5240a5537884c521efb948c6cbeb3e88c76
     var userId = 1;
     console.log(db.cabinet);
     db.cabinet
@@ -160,14 +155,9 @@ module.exports = function (app) {
                   id: resultsIds
                 }
               })
-<<<<<<< HEAD
               .then(function(results) {
                 // res.json(results);
                 return results;
-=======
-              .then(function (results) {
-                res.json(results);
->>>>>>> 30c8b5240a5537884c521efb948c6cbeb3e88c76
               });
 
             console.log("usersCabinet is ");
@@ -176,13 +166,13 @@ module.exports = function (app) {
       });
   });
 
-  // app.get("/api/addIngredient", function(req, res) {
-  //   console.log(db);
-  //   console.log(db.cabinet);
-  //   db.cabinet.findAll({}).then(function(dbCabinet) {
-  //     res.json(dbCabinet);
-  //   });
-  // });
+  app.get("/api/addIngredient", function(req, res) {
+    console.log(db);
+    console.log(db.cabinet);
+    db.cabinet.findAll({}).then(function(dbCabinet) {
+      res.json(dbCabinet);
+    });
+  });
 
   app.post("/api/addIngredient", function (req, res) {
     console.log("It ran! req is: ");
