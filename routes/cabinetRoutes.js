@@ -7,12 +7,7 @@ module.exports = function (app) {
       res.json(dbCabinet);
     });
   });
-
-<<<<<<< HEAD
   app.get("/api/myDrinks", function(req, res) {
-=======
-  app.get("/api/myDrinks", function (req, res) {
->>>>>>> 30c8b5240a5537884c521efb948c6cbeb3e88c76
     var userId = 1;
     console.log(db.cabinet);
     db.cabinet
@@ -160,14 +155,9 @@ module.exports = function (app) {
                   id: resultsIds
                 }
               })
-<<<<<<< HEAD
               .then(function(results) {
                 // res.json(results);
                 return results;
-=======
-              .then(function (results) {
-                res.json(results);
->>>>>>> 30c8b5240a5537884c521efb948c6cbeb3e88c76
               });
 
             console.log("usersCabinet is ");
