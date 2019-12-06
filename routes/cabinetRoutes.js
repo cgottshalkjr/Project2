@@ -132,6 +132,7 @@ module.exports = function(app) {
                     howManyMatches++;
                   }
                 }
+                //If you ever want to only return drinks for which the user has ALL the ingredients, change the below line to "if (howManyMatches === (cocktail.length - 1))"
                 if (howManyMatches > 4) {
                   resultsArray.push(cocktail);
                 }
