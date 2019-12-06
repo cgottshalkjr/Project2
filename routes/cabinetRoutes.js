@@ -1,4 +1,5 @@
 var db = require("../models");
+var User = require("../config/passport/passport.js");
 
 module.exports = function (app) {
   app.get("/api/ingredients", function (req, res) {
@@ -8,11 +9,11 @@ module.exports = function (app) {
     });
   });
 
-<<<<<<< HEAD
   app.get("/api/myDrinks", function(req, res) {
-=======
-  app.get("/api/myDrinks", function (req, res) {
->>>>>>> 30c8b5240a5537884c521efb948c6cbeb3e88c76
+    console.log("This is req user")
+    console.log(req.user)
+    console.log("req.user.id is ");
+    console.log(req.user.id);
     var userId = 1;
     console.log(db.cabinet);
     db.cabinet
@@ -26,6 +27,9 @@ module.exports = function (app) {
         for (var i = 0; i < dbCabinet.length; i++) {
           usersCabinet.push(dbCabinet[i].ingredients.toLowerCase());
         }
+
+        console.log("User is ");
+        console.log(User);
         console.log("usersCabinet is: ");
         console.log(usersCabinet);
         db.drink
@@ -160,18 +164,15 @@ module.exports = function (app) {
                   id: resultsIds
                 }
               })
-<<<<<<< HEAD
               .then(function(results) {
-                // res.json(results);
-                return results;
-=======
-              .then(function (results) {
                 res.json(results);
->>>>>>> 30c8b5240a5537884c521efb948c6cbeb3e88c76
+                // return results;
               });
 
             console.log("usersCabinet is ");
             console.log(usersCabinet);
+            console.log("User.id is ");
+            console.log(User.id);
           });
       });
   });

@@ -160,19 +160,17 @@ $("#addBtn").on("click", function(event) {
 
 $("#searchBtn").on("click", function(event) {
   event.preventDefault();
-  var newDrink = {
-    userId: 1
-  };
   $.ajax(
     {
       url: "/api/myDrinks",
-      method: "POST",
-      data: newDrink
+      method: "GET"
     },
     function(err, data) {
       if (err) {
         console.log(err);
       }
+
+      console.log("data is");
 
       console.log(data);
     }
