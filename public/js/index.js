@@ -137,37 +137,30 @@ $('#addBtn').on('click', function(event) {
 //-------------------------------------------------------------------------------------------------
 // post route to the cabinet route to grab recipes
 
-$('#searchBtn').on('click', function(event) {
-	event.preventDefault();
-	var newDrink = {
-		userId: 1
-	};
-	$.ajax({
-		url: '/api/myDrinks',
-		method: 'POST',
-		data: newDrink
-	}).then(function(data) {
-		console.log(data);
-		location.reload();
-	});
+$("#searchBtn").on("click", function(event) {
+  event.preventDefault();
+  $.ajax({
+    method: "GET",
+    url: "/api/myDrinks"
+  }).then(function(data) {
+    console.log(data);
+  });
 });
 //--------------------------------------------------------------------------------------------------------
 //this is the onclick function for the delete button
-$('.deleteBtn').on('click', function(event) {
-	event.preventDefault();
-	var id = $(this).data('id');
+$(".deleteBtn").on("click", function(event) {
+  event.preventDefault();
+  var id = $(this).data("id");
 
-	console.log('delete button was clicked');
-	// Send the DELETE request.
-	$.ajax('/api/addIngredient/' + id, {
-		type: 'DELETE'
-	}).then(function() {
-		console.log('delete', id);
-		// Reload the page to get the updated list
-		location.reload();
-	});
-});
-
+  console.log("delete button was clicked");
+  // Send the DELETE request.
+  $.ajax("/api/addIngredient/" + id, {
+    type: "DELETE"
+  }).then(function() {
+    console.log("delete", id);
+    // Reload the page to get the updated list
+    location.reload();
+  });
 
 $(document).ready(function() {
 	$.get('/api/addIngredient', function(data) {

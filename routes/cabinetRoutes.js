@@ -1,4 +1,5 @@
 var db = require("../models");
+var User = require("../config/passport/passport.js");
 
 module.exports = function(app) {
   app.get("/api/ingredients", function(req, res) {
@@ -7,6 +8,7 @@ module.exports = function(app) {
       res.json(dbCabinet);
     });
   });
+  
   app.get("/api/myDrinks", function(req, res) {
     var userId = 1;
     console.log(db.cabinet);
@@ -21,46 +23,9 @@ module.exports = function(app) {
         for (var i = 0; i < dbCabinet.length; i++) {
           usersCabinet.push(dbCabinet[i].ingredients.toLowerCase());
         }
-        console.log("usersCabinet is: ");
-        console.log(usersCabinet);
-        db.drink
-          //Return all the drinks that contain the first ingredient in the user's cabinet
-          // .findAll({
-          //   where: {
-          //     strIngredients: db.sequelize.where(
-          //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //       "LIKE",
-          //       "%" + usersCabinet[0] + "%"
-          //     )
-          //   }
-          // })
 
-          //Finds and returns all the drinks that contain one of the user's first three ingredients in their cabinet
-          // .findAll({
-          //   where: db.sequelize.or(
-          //     {
-          //       strIngredients: db.sequelize.where(
-          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //         "LIKE",
-          //         "%" + usersCabinet[0] + "%"
-          //       )
-          //     },
-          //     {
-          //       strIngredients: db.sequelize.where(
-          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //         "LIKE",
-          //         "%" + usersCabinet[1] + "%"
-          //       )
-          //     },
-          //     {
-          //       strIngredients: db.sequelize.where(
-          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //         "LIKE",
-          //         "%" + usersCabinet[2] + "%"
-          //       )
-          //     }
-          //   )
-          // })
+   
+        db.drink
           .findAll({})
           .then(function (dbDrinks) {
             var recipeIngredients = [];
@@ -156,8 +121,8 @@ module.exports = function(app) {
                 }
               })
               .then(function(results) {
-                // res.json(results);
-                return results;
+                res.json(results);
+                // return results;
               });
 
             console.log("usersCabinet is ");
@@ -188,3 +153,43 @@ module.exports = function(app) {
     });
   });
 };
+
+
+
+          //Return all the drinks that contain the first ingredient in the user's cabinet
+          // .findAll({
+          //   where: {
+          //     strIngredients: db.sequelize.where(
+          //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //       "LIKE",
+          //       "%" + usersCabinet[0] + "%"
+          //     )
+          //   }
+          // })
+
+          //Finds and returns all the drinks that contain one of the user's first three ingredients in their cabinet
+          // .findAll({
+          //   where: db.sequelize.or(
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[0] + "%"
+          //       )
+          //     },
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[1] + "%"
+          //       )
+          //     },
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[2] + "%"
+          //       )
+          //     }
+          //   )
+          // })
