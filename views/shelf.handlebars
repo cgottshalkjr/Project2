@@ -1,17 +1,15 @@
-<div class="background-image toggle-image first-image show"></div>
-<div class="background-image toggle-image second-image"></div>
-<div class="background-image toggle-image third-image"></div>
+
 
 <div class="sidenav">
     <!-- figure out the page href to put where the # sign is-->
     <center>
-        <h3 class="text-warning">Welcome, *InsertUser*</h3>
+        <h3 class="text-warning">Welcome, {{firstname}} {{lastname}}</h3>
         <br>
         <a class="btn btn-outline-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
         <br>
         <a class="btn btn-outline-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
-         <br>
-        <a class="btn btn-outline-warning btn-sm" href="#" id="navBtn">Faves</a>
+        <br>
+        <a class="btn btn-outline-warning btn-sm" href="/faves" id="navBtn">Faves</a>
 
         <br>
         <a class="btn btn-outline-warning btn-sm" href="/signin" id="navBtn">Log Out</a>
@@ -21,48 +19,45 @@
 
 <div class="container">
     <div class="jumbotron jumbotron-fluid" width="50">
-   </div>
-</div>
-
-
-<div class="container">
-    <center>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card" style="background-color: black; color: white;">
-                <div class="card-body">
-                    <p>Search Using The Ingredients On Your Shelf</p>
-                    <p>To Unlock Some of The Most Popular Cocktail Recipes</p>
-                </div>
-            </div>    
-        </div>
     </div>
-    </center>
-
 </div>
-
 <div id="shelfcard" class="card" style="width: 70rem;">
-  <div class="card-header">
-    Your Ingredients
-  </div>
-  <ul class="list-group list-group-flush" id="itemlist">
-   {{#each liquors}}
-   <li class="list-group-item pl-5" data-id="{{id}}">{{ingredients}}</li>
-   {{/each}}
-  </ul>
-    <button type="button" class="btn btn-lg btn-outline-warning">Search Recipes</button>
+    <div class="card-header">
+        <center>
+            Your Shelf
+
+    </div>
+
+    <ul class="list-group list-group-flush" id="itemlist">
+        {{#each liquors}}
+        <li class="list-group-item pl-5" data-id="{{id}}">{{ingredients}}</li>
+        {{/each}}
+    </ul>
+
 
 </div>
+</center>
+<center>
+    <span><button type="button" class="btn btn-lg btn-outline-warning">Search Recipes</button></span>
 
+    <div>
+        <form class="form">
+            <span> <input class="form" type="search" placeholder="Search" aria-label="Search" id="addNew"> </span>
+            <br>
+            <span> <button class="btn btn-outline-warning" id="addBtn">Add</button></span>
+            <br>
+        </form>
+    </div>
+
+</center>
 
 <style>
-
     .btn {
         margin: 0 auto;
-        float: none;
         padding: 10px;
         margin-bottom: 10px;
         margin-top: 10px;
+        align-items: center;
     }
 
 
@@ -73,43 +68,14 @@
 
     .card {
         margin: 0 auto;
-        float: none; 
-        
+        float: none;
+
     }
 
     .card-header {
-        font-size: 30px;
+        font-size: 40px;
     }
-
-   .sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  display: block;
-  
-}
-
-.sidenav a:hover {
-  color: white;
-}
-
-.form {
-    width: 100px;
-}
-
+    #shelf-card{
+        background-image: url("../images/bar.jpg");
+    }
 </style>
-
-

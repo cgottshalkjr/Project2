@@ -98,6 +98,8 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
+//------------------------------------------------------------------------------------------------------
+
 //start of BG toggle function for the log-in page
 function cycleBackgrounds() {
   var index = 0;
@@ -119,3 +121,35 @@ $(function() {
   cycleBackgrounds();
 });
 //end of BG toggle image functions
+//-------------------------------------------------------------------------------------------------
+//code to add the ingredients to the user's shelf page
+
+$("#addBtn").on("click", function(event) {
+  event.preventDefault();
+  var newIngredient = {
+    ingredients: $("#addNew").val(),
+    userId: 1
+  };
+  console.log(newIngredient);
+  $.ajax({
+    url: "/api/addIngredient",
+    method: "POST",
+    data: newIngredient
+   }, function(err, data) {
+    if(err)
+      console.log(err);
+
+    console.log(data);
+    console.log($("#addNew").val());
+  var addIngredient = $("#addNew").val();
+
+  var newListItem = $("<li>");
+  newListItem.text(addIngredient);
+
+  $("#itemlist").append(newListItem);
+  console.log("One Item Was Added");
+  });
+  
+});
+
+//-------------------------------------------------------------------------------------------------

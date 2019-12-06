@@ -5,14 +5,14 @@
         <h3 class="text-warning">Welcome, {{firstname}} {{lastname}}!</h3>
         <br>
         <div>
-        <img height="150" width="auto" src="{{image}}">
+            <img height="150" width="auto" src="{{image}}">
         </div>
-        
+
         <a class="btn btn-outline-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
         <br>
         <a class="btn btn-outline-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
-         <br>
-        <a class="btn btn-outline-warning btn-sm" href="#" id="navBtn">Faves</a>
+        <br>
+        <a class="btn btn-outline-warning btn-sm" href="/faves" id="navBtn">Faves</a>
 
         <br>
         <a class="btn btn-outline-warning btn-sm" href="/logout" id="navBtn">Log Out</a>
@@ -31,19 +31,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 offset-1">
                 <div class="card">
                     <div class="card-body">
-                        <img src="../images/tequila.jpg"class="img-thumbnail">
-                    </div>
-                </div>
+                        <img src="../images/tequila.jpg" alt="..." class="img-thumbnail img-fluid">
 
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="../images/rum.jpg" alt="..." class="img-thumbnail">
-                        
                     </div>
 
                 </div>
@@ -52,8 +44,8 @@
             <div class="col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <img src="../images/vodka.jpg" alt="..." class="img-thumbnail">
-                        
+                        <img src="../images/vodka.jpg" alt="..." class="img-thumbnail img-fluid">
+
                     </div>
 
                 </div>
@@ -62,7 +54,7 @@
             <div class="col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <img src="../images/gin.jpg" alt="..." class="img-thumbnail">
+                        <img src="../images/gin.jpg" alt="..." class="img-thumbnail img-fluid">
                     </div>
 
                 </div>
@@ -71,8 +63,8 @@
             <div class="col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <img src="../images/bourbon.jpg" alt="..." class="img-thumbnail">
-                       
+                        <img src="../images/bourbon.jpg" alt="..." class="img-thumbnail img-fluid">
+
                     </div>
 
                 </div>
@@ -81,7 +73,7 @@
             <div class="col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <img src="../images/cognac.jpg" alt="..." class="img-thumbnail">
+                        <img src="../images/cognac.jpg" alt="..." class="img-thumbnail img-fluid">
                     </div>
 
                 </div>
@@ -96,25 +88,20 @@
 </div>
 <div class="container">
     <center>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card" style="background-color: black; color: white;">
-                <div class="card-body">
-                    <p>Search Using The Ingredients On Your Shelf</p>
-                    <p>To Unlock Some of The Most Popular Cocktail Recipes</p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" style="background-color: black; color: white;">
+                    <div class="card-body">
+
+                        <br>
+                        <a class="btn btn-outline-warning" href="/shelf" id="navBtn">START</a>
+                    </div>
                 </div>
-            </div>
-       
-            <form class="form">
-               <span> <input class="form" type="search" placeholder="Search" aria-label="Search"> </span>
-                <br>
-                <br>
-               <span> <button class="btn btn-outline-warning" type="submit">Get Recipes</button></span>
-                <br>
-            </form>
+
         
+
+            </div>
         </div>
-    </div>
     </center>
 
 </div>
