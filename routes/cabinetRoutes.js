@@ -9,18 +9,13 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/myIngredients", function(req, res) {
-    var userId = 1;
+  app.get("/api/myDrinks", function(req, res) {
+    var userId = 2;
     console.log(db.cabinet);
-    console.log("Hello!");
     db.cabinet
       .findAll({
         where: {
-<<<<<<< HEAD
-          userId: req.user.id
-=======
           userId: userId
->>>>>>> 911e8ca3d57c01e61fdd62a9503a5cac7483474b
         }
       })
       .then(function(dbCabinet) {
@@ -31,43 +26,44 @@ module.exports = function(app) {
         console.log("usersCabinet is: ");
         console.log(usersCabinet);
         db.drink
-          //Return all the drinks that contain the first ingredient in the user's cabinet
-          // .findAll({
-          //   where: {
-          //     strIngredients: db.sequelize.where(
-          //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //       "LIKE",
-          //       "%" + usersCabinet[0] + "%"
-          //     )
-          //   }
-          // })
+        //Return all the drinks that contain the first ingredient in the user's cabinet
+        // .findAll({
+        //   where: {
+        //     strIngredients: db.sequelize.where(
+        //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+        //       "LIKE",
+        //       "%" + usersCabinet[0] + "%"
+        //     )
+        //   }
+        // })
 
           //Finds and returns all the drinks that contain one of the user's first three ingredients in their cabinet
-          .findAll({
-            where: db.sequelize.or(
-              {
-                strIngredients: db.sequelize.where(
-                  db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-                  "LIKE",
-                  "%" + usersCabinet[0] + "%"
-                )
-              },
-              {
-                strIngredients: db.sequelize.where(
-                  db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-                  "LIKE",
-                  "%" + usersCabinet[1] + "%"
-                )
-              },
-              {
-                strIngredients: db.sequelize.where(
-                  db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-                  "LIKE",
-                  "%" + usersCabinet[2] + "%"
-                )
-              }
-            )
-          })
+          // .findAll({
+          //   where: db.sequelize.or(
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[0] + "%"
+          //       )
+          //     },
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[1] + "%"
+          //       )
+          //     },
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[2] + "%"
+          //       )
+          //     }
+          //   )
+          // })
+          .findAll({})
           .then(function(dbDrinks) {
             var recipeIngredients = [];
             console.log(dbDrinks.length);
@@ -186,12 +182,8 @@ module.exports = function(app) {
     console.log("res is: ");
     // console.log(res);
     var newIngredient = {
-<<<<<<< HEAD
       ingredients: req.body.ingredients,
       userId: 1
-=======
-      ingredients: "vodka"
->>>>>>> 911e8ca3d57c01e61fdd62a9503a5cac7483474b
     };
     db.cabinet.create(newIngredient).then(function(data) {
       res.json(data);
