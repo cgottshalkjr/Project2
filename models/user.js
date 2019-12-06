@@ -20,6 +20,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT
     },
 
+    image: {
+      type: DataTypes.TEXT
+    },
+
     about: {
       type: DataTypes.TEXT
     },

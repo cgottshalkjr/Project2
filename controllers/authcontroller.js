@@ -21,7 +21,8 @@ exports.dashboard = function(req, res) {
           user: req.user,
           username: dbUser.username,
           firstname: dbUser.firstname,
-          lastname: dbUser.latename
+          lastname: dbUser.lastname,
+          image: dbUser.image
         };
         res.render("dashboard", hbsObject);
       });
