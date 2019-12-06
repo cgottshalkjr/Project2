@@ -1,44 +1,101 @@
-
-
-<div class="sidenav">
-    <!-- figure out the page href to put where the # sign is-->
-    <center>
-        <h3 class="text-warning">Welcome, {{firstname}} {{lastname}}</h3>
-        <br>
-        <a class="btn btn-outline-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
-        <br>
-        <a class="btn btn-outline-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
-        <br>
-        <a class="btn btn-outline-warning btn-sm" href="/faves" id="navBtn">Faves</a>
-
-        <br>
-        <a class="btn btn-outline-warning btn-sm" href="/signin" id="navBtn">Log Out</a>
-
-    </center>
-</div>
-
-<div class="container">
-    <div class="jumbotron jumbotron-fluid" width="50">
-    </div>
-</div>
-<div id="shelfcard" class="card" style="width: 70rem;">
-    <div class="card-header">
+<body>
+    <div class="sidenav">
+        <!-- figure out the page href to put where the # sign is-->
         <center>
-            Your Shelf
 
+            <h3 class="text-warning">Welcome, {{firstname}} {{lastname}}</h3>
+            <div>
+                <img height="150" width="auto" src="{{image}}">
+            </div>
+            <br>
+            <a class="btn btn-outline-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
+            <br>
+            <a class="btn btn-outline-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
+            <br>
+            <a class="btn btn-outline-warning btn-sm" href="/faves" id="navBtn">Faves</a>
+
+            <br>
+            <a class="btn btn-outline-warning btn-sm" href="/signin" id="navBtn">Log Out</a>
+
+        </center>
     </div>
 
-    <ul class="list-group list-group-flush" id="itemlist">
-        {{#each liquors}}
-        <li class="list-group-item pl-5" data-id="{{id}}">{{ingredients}}</li>
-        {{/each}}
-    </ul>
+
+
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid" width="50">
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+
+
+                <div>
+                    <form class="form">
+                        <input class="form" type="search" placeholder="Search" aria-label="Search" id="addNew">
+                        <button class="btn btn-lg btn-warning" id="addBtn">Add</button>
+                    </form>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col">
+                <div class="scrollable">
+                    <div id="shelfcard" class="card" style="width: 35rem;">
+                        <div class="card-header">
+
+                            Your Shelf
+
+                        </div>
+
+                        <ul class="list-group list-group-flush" id="itemlist">
+                            {{#each liquors}}
+                            <li class="list-group-item pl-5" data-id="{{id}}">{{ingredients}}</li>
+                            {{/each}}
+                            <span><button type="button" class="btn btn-lg btn-outline-warning">Search
+                                    Recipes</button></span>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+          </div>
+
+
+<div class = "container">
+    <div class= "row">
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">drink</h5>
+    <p class="card-text">drink recipe</p>
+    <a href="#" class="btn btn-primary">Add to Favorites</a>
+  </div>
+  </div>
+</div>
+
+
+
 
 
 </div>
-</center>
-<center>
-    <span><button type="button" class="btn btn-lg btn-outline-warning" id="searchBtn">Search Recipes</button></span>
+
+
+
+
+
+
+
+</body>
+
 
     <div>
         <form class="form">
@@ -50,17 +107,16 @@
         </form>
     </div>
 
-</center>
 
 <style>
     .btn {
         margin: 0 auto;
         padding: 10px;
         margin-bottom: 10px;
-        margin-top: 10px;
+        margin-top: 75px;
         align-items: center;
+        margin-right: 30px;
     }
-
 
     h1 {
         text-align: center;
@@ -70,13 +126,41 @@
     .card {
         margin: 0 auto;
         float: none;
-
+        width: 24%;
+        height: 300px;
     }
+
+
+    .scrollable {
+        overflow-y: auto;
+        max-height: 500px;
+    }
+
+
 
     .card-header {
         font-size: 40px;
     }
-    #shelf-card{
-        background-image: url("../images/bar.jpg");
+
+    .form {
+        width: 95%;
+        margin-top: 50px;
+        height: 50px;
+    }
+
+    .col {
+        margin-top: 50px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    body {
+        background-image: url(https://images.squarespace-cdn.com/content/v1/5ccc970f7046802e565771ae/1561494405888-DX2W32LSA8I0WYDK0MQN/ke17ZwdGBToddI8pDm48kDVEj010BbXsLnm509AHjVF7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UWiOgHWyWfC8BdxC_WuXfvhWFtDdzCpB3PJsO8_z2e5f_W3y_yy4MVWH39a9Q36QsA/SCB-COVER-BARS.jpg?format=2500w);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Francois One', sans-serif;
+
+
     }
 </style>
