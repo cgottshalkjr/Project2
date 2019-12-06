@@ -28,48 +28,8 @@ module.exports = function (app) {
           usersCabinet.push(dbCabinet[i].ingredients.toLowerCase());
         }
 
-        console.log("User is ");
-        console.log(User);
-        console.log("usersCabinet is: ");
-        console.log(usersCabinet);
+   
         db.drink
-          //Return all the drinks that contain the first ingredient in the user's cabinet
-          // .findAll({
-          //   where: {
-          //     strIngredients: db.sequelize.where(
-          //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //       "LIKE",
-          //       "%" + usersCabinet[0] + "%"
-          //     )
-          //   }
-          // })
-
-          //Finds and returns all the drinks that contain one of the user's first three ingredients in their cabinet
-          // .findAll({
-          //   where: db.sequelize.or(
-          //     {
-          //       strIngredients: db.sequelize.where(
-          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //         "LIKE",
-          //         "%" + usersCabinet[0] + "%"
-          //       )
-          //     },
-          //     {
-          //       strIngredients: db.sequelize.where(
-          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //         "LIKE",
-          //         "%" + usersCabinet[1] + "%"
-          //       )
-          //     },
-          //     {
-          //       strIngredients: db.sequelize.where(
-          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-          //         "LIKE",
-          //         "%" + usersCabinet[2] + "%"
-          //       )
-          //     }
-          //   )
-          // })
           .findAll({})
           .then(function (dbDrinks) {
             var recipeIngredients = [];
@@ -171,8 +131,6 @@ module.exports = function (app) {
 
             console.log("usersCabinet is ");
             console.log(usersCabinet);
-            console.log("User.id is ");
-            console.log(User.id);
           });
       });
   });
@@ -199,3 +157,43 @@ module.exports = function (app) {
     });
   });
 };
+
+
+
+          //Return all the drinks that contain the first ingredient in the user's cabinet
+          // .findAll({
+          //   where: {
+          //     strIngredients: db.sequelize.where(
+          //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //       "LIKE",
+          //       "%" + usersCabinet[0] + "%"
+          //     )
+          //   }
+          // })
+
+          //Finds and returns all the drinks that contain one of the user's first three ingredients in their cabinet
+          // .findAll({
+          //   where: db.sequelize.or(
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[0] + "%"
+          //       )
+          //     },
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[1] + "%"
+          //       )
+          //     },
+          //     {
+          //       strIngredients: db.sequelize.where(
+          //         db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //         "LIKE",
+          //         "%" + usersCabinet[2] + "%"
+          //       )
+          //     }
+          //   )
+          // })

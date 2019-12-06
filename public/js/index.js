@@ -160,21 +160,12 @@ $("#addBtn").on("click", function(event) {
 
 $("#searchBtn").on("click", function(event) {
   event.preventDefault();
-  $.ajax(
-    {
-      url: "/api/myDrinks",
-      method: "GET"
-    },
-    function(err, data) {
-      if (err) {
-        console.log(err);
-      }
-
-      console.log("data is");
-
-      console.log(data);
-    }
-  );
+  $.ajax({
+    method: "GET",
+    url: "/api/myDrinks"
+  }).then(function(data) {
+    console.log(data);
+  });
 });
 //--------------------------------------------------------------------------------------------------------
 //this is the onclick function for the delete button
@@ -182,7 +173,7 @@ $(".deleteBtn").on("click", function(event) {
   event.preventDefault();
   var id = $(this).data("id");
 
-  console.log("delete button was clicked");;
+  console.log("delete button was clicked");
   // Send the DELETE request.
   $.ajax("/api/addIngredient/" + id, {
     type: "DELETE"
