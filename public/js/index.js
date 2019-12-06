@@ -156,3 +156,41 @@ $("#addBtn").on("click", function(event) {
 });
 
 //-------------------------------------------------------------------------------------------------
+// post route to the cabinet route to grab recipes
+
+$("#searchBtn").on("click", function(event) {
+  event.preventDefault();
+  var newDrink = {
+    userId: 1
+  };
+  $.ajax(
+    {
+      url: "/api/myDrinks",
+      method: "POST",
+      data: newDrink
+    },
+    function(err, data) {
+      if (err) {
+        console.log(err);
+      }
+
+      console.log(data);
+    }
+  );
+});
+//--------------------------------------------------------------------------------------------------------
+//this is the onclick function for the delete button
+$(".deleteBtn").on("click", function(event) {
+  event.preventDefault();
+  var id = $(this).data("id");
+
+  console.log("delete button was clicked");;
+  // Send the DELETE request.
+  $.ajax("/api/addIngredient/" + id, {
+    type: "DELETE"
+  }).then(function() {
+    console.log("delete", id);
+    // Reload the page to get the updated list
+    location.reload();
+  });
+});

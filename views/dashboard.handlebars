@@ -8,14 +8,19 @@
             <img height="150" width="auto" src="{{image}}">
         </div>
 
-        <a class="btn btn-outline-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
+        <a class="btn btn-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
         <br>
-        <a class="btn btn-outline-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
+        <a class="btn btn-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
         <br>
+<<<<<<< HEAD
+        <a class="btn btn-warning btn-sm" href="/faves" id="navBtn">Faves</a>
+=======
+        <a class="btn btn-outline-warning btn-sm" href="#" id="navBtn">Faves</a>
         <a class="btn btn-outline-warning btn-sm" href="/faves" id="navBtn">Faves</a>
+>>>>>>> 93a258b336008c6fdc046417f89628c71d5cd15d
 
         <br>
-        <a class="btn btn-outline-warning btn-sm" href="/logout" id="navBtn">Log Out</a>
+        <a class="btn btn-warning btn-sm" href="/logout" id="navBtn">Log Out</a>
 
 
 
@@ -34,6 +39,16 @@
             <div class="col-md-2 offset-1">
                 <div class="card">
                     <div class="card-body">
+                        <img src="../images/tequila.jpg" class="img-thumbnail">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="../images/rum.jpg" alt="..." class="img-thumbnail">
+
                         <img src="../images/tequila.jpg" alt="..." class="img-thumbnail img-fluid">
 
                     </div>
@@ -92,6 +107,53 @@
             <div class="col-md-12">
                 <div class="card" style="background-color: black; color: white;">
                     <div class="card-body">
+                        <p>Search Using The Ingredients On Your Shelf</p>
+                        <p>To Unlock Some of The Most Popular Cocktail Recipes</p>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                {{!-- <div class="modal fade" id="newCocktailModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content text-center">
+                            <div class="modal-body">
+                                <h2 id="modalText">What kind of cocktail would you like {{firstname}}</h2>
+                                <form class="form">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="name" class="form-control" id="nameNew" placeholder="Drink Name">
+                                        <label for="ingredients">Ingredients</label>
+                                        <input type="ingredients" class="form-control" id="ingredientsNew"
+                                            placeholder="Ingredients">
+                                        <label for="category">Category</label>
+                                        <input type="category" class="form-control" id="categoryNew"
+                                            placeholder="Ingredients">
+                                        <div class="form-group">
+                                            <label for="category">Instructions</label>
+                                            <textarea class="form-control" id="textArea" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+
+                <form class="form">
+                    <span> <input class="form" type="search" placeholder="Search" aria-label="Search"> </span>
+                    <br>
+                    <br>
+                    <span> <button class="btn btn-outline-warning" type="submit">Get Recipes</button></span>
+                    <br><br>
+                </form>
+                 {{!-- <button type="button" class="btn btn-warning" data-target="#newCocktailModal" data-toggle="modal">
+  Launch demo modal
+</button> --}}
 
                         <br>
                         <a class="btn btn-outline-warning" href="/shelf" id="navBtn">START</a>
@@ -104,4 +166,54 @@
         </div>
     </center>
 
+    <div class="modal fade" id="newCocktailModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content text-center">
+                            <div class="modal-body">
+                                <h2 id="modalText">What kind of cocktail would you like {{firstname}}</h2>
+                                <form class="form">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="name" class="form-control" id="nameNew" placeholder="Drink Name">
+                                        <label for="ingredients">Ingredients</label>
+                                        <input type="ingredients" class="form-control" id="ingredientsNew"
+                                            placeholder="Ingredients">
+                                        <label for="category">Category</label>
+                                        <input type="category" class="form-control" id="categoryNew"
+                                            placeholder="Ingredients">
+                                        <div class="form-group">
+                                            <label for="category">Instructions</label>
+                                            <textarea class="form-control" id="textArea" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-warning" data-target="#newCocktailModal" data-toggle="modal">
+  Launch demo modal
+</button>
+
 </div>
+
+{{!-- <script>
+
+
+    $("#newCocktail").on("click", function (event) {
+        event.preventDefault();
+
+        if ($("#nameNew").val() === "" || $("ingredientsNew").val() === "" || $("#categoryNew").val() === "" || $("#textArea").val() === "") {
+
+            return alert("PLEASE FILL OUT EVERY SINGLE DANG FIELD!!!")
+
+        }
+    });
+</script> --}}
+
