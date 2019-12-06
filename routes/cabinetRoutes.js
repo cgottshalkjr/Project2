@@ -1,19 +1,15 @@
 var db = require("../models");
 var User = require("../config/passport/passport.js");
 
-module.exports = function (app) {
-  app.get("/api/ingredients", function (req, res) {
+module.exports = function(app) {
+  app.get("/api/ingredients", function(req, res) {
     console.log(db.cabinet);
-    db.cabinet.findAll({}).then(function (dbCabinet) {
+    db.cabinet.findAll({}).then(function(dbCabinet) {
       res.json(dbCabinet);
     });
   });
-
+  
   app.get("/api/myDrinks", function(req, res) {
-    console.log("This is req user")
-    console.log(req.user)
-    console.log("req.user.id is ");
-    console.log(req.user.id);
     var userId = 1;
     console.log(db.cabinet);
     db.cabinet
@@ -135,13 +131,13 @@ module.exports = function (app) {
       });
   });
 
-  // app.get("/api/addIngredient", function(req, res) {
-  //   console.log(db);
-  //   console.log(db.cabinet);
-  //   db.cabinet.findAll({}).then(function(dbCabinet) {
-  //     res.json(dbCabinet);
-  //   });
-  // });
+  app.get("/api/addIngredient", function(req, res) {
+    console.log(db);
+    console.log(db.cabinet);
+    db.cabinet.findAll({}).then(function(dbCabinet) {
+      res.json(dbCabinet);
+    });
+  });
 
   app.post("/api/addIngredient", function (req, res) {
     console.log("It ran! req is: ");
