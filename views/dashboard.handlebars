@@ -1,29 +1,6 @@
-<!-- Side navigation -->
-<div class="sidenav">
-    <!-- figure out the page href to put where the # sign is-->
-    <center>
-        <h3 class="text-warning">Welcome, {{firstname}} {{lastname}}!</h3>
-        <br>
-        <div>
-            <img height="150" width="auto" src="{{image}}">
-        </div>
+  {{> navbar}}
 
-        <a class="btn btn-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
-        <br>
-        <a class="btn btn-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
-        <br>
-        <a class="btn btn-warning btn-sm" href="/faves" id="navBtn">Faves</a>
-
-        <br>
-        <a class="btn btn-warning btn-sm" href="/logout" id="navBtn">Log Out</a>
-
-
-
-    </center>
-</div>
-
-
-<div class="container">
+<div class="container mainContainer">
     <div class="jumbotron jumbotron-fluid" width="50">
     </div>
     <div class="container">
@@ -77,7 +54,7 @@
     <br>
 
 <br>
-        <a class="btn btn-warning btn-lg" href="/shelf">Start</a>
+        <a class="btn btn-success btn-block btnText" href="/shelf">Start</a>
 
 </div>
 
