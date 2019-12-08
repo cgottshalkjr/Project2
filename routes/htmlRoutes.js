@@ -5,7 +5,7 @@ module.exports = function(app) {
     db.cabinet
       .findAll({
         where: {
-          userId: "1"
+          userId: req.user.id
         }
       })
       .then(function(response) {
