@@ -197,4 +197,18 @@ module.exports = function(app) {
         }
       });
   });
+
+  app.delete("/shelf/:itemId", function(req, res) {
+    db.cabinet
+      .destroy({
+        where: {
+          userId: req.user.id,
+          itemId: req.params.itemId
+        }
+      })
+      // eslint-disable-next-line no-unused-vars
+      .then(function(response) {
+        res.json("Ingredient has been deleted from Shelf!");
+      });
+  });
 };
