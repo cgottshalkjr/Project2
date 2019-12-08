@@ -40,6 +40,12 @@ body {
   box-shadow: 5px 5px;
 }
 
+#shelfCard2 {
+  margin-bottom: 20px;
+  background: rgb(255, 255, 255); /* This is for ie8 and below */
+  box-shadow: 5px 5px;
+}
+
 
 
 
@@ -47,6 +53,7 @@ li {
   background: rgb(255, 255, 255); /* This is for ie8 and below */
   background: rgba(255, 255, 255, 0.75); 
   box-shadow: 3px 3px;
+  width: 50%;
   margin: 7px;
 }
 
