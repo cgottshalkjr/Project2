@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="shelfcard" class="card">
-                    <div class="card-header">
+                    <div class="card-header cardName">
                         Your Shelf
                         <div class="shelfSearch">
                             <form class="form">
@@ -20,17 +20,13 @@
                             <li>{{this}}</li>
                             {{/each}}
                         </ul>
-
+                        
                     </div>
-                    {{!-- <ul class="list-group list-group-flush" id="itemlist">
-                            {{#each liquors}}
-                            <li class="list-group-item pl-5" data-id="{{id}}">{{strIngredients}}</li>
-                            {{/each}}
-                            <span><button type="button" id="searchBtn" class="btn btn-lg btn-outline-warning">Search
-                                    Recipes</button></span>
-                        </ul> --}}
+                    
                         <span><button type="button" id="searchBtn" class="btn btn-lg btn-outline-warning">Search
                                     Recipes</button></span>
+
+                                   
                 </div>
             </div>
         </div>
@@ -39,11 +35,11 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">drink</h5>
+                        <h5 class="card-title cardName" >Recipes</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text" id="recipe-div">drink recipe</p>
-                        <a href="/faves" class="btn btn-primary">Add to Favorites</a>
+                        <p class="card-text cardName" id="recipe-div">Drink Recipes</p>
+                        <a href="/faves" class="btn btn-danger">Add to Favorites</a>
                     </div>
                 </div>
             </div>

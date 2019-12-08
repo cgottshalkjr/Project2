@@ -77,7 +77,9 @@ body {
 .card{
 	font-family: 'Josefin Sans', sans-serif;
 }
-
+.cardName {
+	font-size: 25px;
+}
 /* Basic background image styling. */
 .background-image {
 	background-position: center center;
