@@ -9,6 +9,8 @@ module.exports = function(app) {
         }
       })
       .then(function(response) {
+        console.log("this shelf response is: ******************************");
+        console.log(response);
         res.render("shelf", {
           liquors: response
         });
