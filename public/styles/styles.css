@@ -23,22 +23,45 @@ body {
 .shelfHeader {
   font-size: 28px;
   font-weight: bold;
+  text-shadow: 2px 2px 5px white;
 }
 
 .shelfBody {
   overflow-y: auto;
   min-height: 400px;
   max-height: 600px;
+  text-shadow: 2px 2px 5px white;
 }
 
-#shelfcard {
+#shelfcard, #cocktailRecCard{
   margin-bottom: 20px;
   background: rgb(255, 255, 255); /* This is for ie8 and below */
-background: rgba(255, 255, 255, 0.75); 
+  background: rgba(255, 255, 255, 0.75); 
+  box-shadow: 5px 5px;
+}
+
+
+
+
+li {
+  background: rgb(255, 255, 255); /* This is for ie8 and below */
+  background: rgba(255, 255, 255, 0.75); 
+  box-shadow: 3px 3px;
+  margin: 7px;
 }
 
 .shelfSearch {
   float: right;
+}
+
+.shelfImg {
+  /* width: 75%;
+    height: 10vw;
+    object-fit: cover; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .mainContainer {

@@ -1,14 +1,14 @@
 var db = require("../models");
 
-exports.signup = function(req, res) {
+exports.signup = function (req, res) {
   res.render("signup");
 };
 
-exports.signin = function(req, res) {
+exports.signin = function (req, res) {
   res.render("signin");
 };
 
-exports.dashboard = function(req, res) {
+exports.dashboard = function (req, res) {
   if (req.user) {
     db.user
       .findOne({
@@ -16,7 +16,7 @@ exports.dashboard = function(req, res) {
           id: req.user.id
         }
       })
-      .then(function(dbUser) {
+      .then(function (dbUser) {
         var hbsObject = {
           user: req.user,
           username: dbUser.username,
@@ -29,7 +29,7 @@ exports.dashboard = function(req, res) {
   }
 };
 
-exports.faves = function(req, res) {
+exports.favorites = function (req, res) {
   if (req.user) {
     db.user
       .findOne({
@@ -37,7 +37,7 @@ exports.faves = function(req, res) {
           id: req.user.id
         }
       })
-      .then(function(dbUser) {
+      .then(function (dbUser) {
         var hbsObject = {
           user: req.user,
           username: dbUser.username,
@@ -45,12 +45,12 @@ exports.faves = function(req, res) {
           lastname: dbUser.lastname,
           image: dbUser.image
         };
-        res.render("faves", hbsObject);
+        res.render("favorites", hbsObject);
       });
   }
 };
 
-exports.shelf = function(req, res) {
+exports.shelf = function (req, res) {
   if (req.user) {
     db.user
       .findOne({
@@ -58,7 +58,7 @@ exports.shelf = function(req, res) {
           id: req.user.id
         }
       })
-      .then(function(dbUser) {
+      .then(function (dbUser) {
         var hbsObject = {
           user: req.user,
           username: dbUser.username,
@@ -72,25 +72,21 @@ exports.shelf = function(req, res) {
               userId: req.user.id
             }
           })
-          .then(function(response) {
+          .then(function (response) {
             console.log("+++++++++++++++++++++++++");
             // console.log(response);
             hbsObject.cabinet = new Set(response.map(item => item.dataValues.ingredients));
             console.log(hbsObject.cabinet);
-            
+
             res.render("shelf", hbsObject);
           });
       });
   }
 };
 
-// exports.shelf = function(req, res) {
-//   res.render("shelf");
-// };
-
-exports.logout = function(req, res) {
+exports.logout = function (req, res) {
   // eslint-disable-next-line no-unused-vars
-  req.session.destroy(function(err) {
+  req.session.destroy(function (err) {
     res.redirect("/signin");
   });
 };
