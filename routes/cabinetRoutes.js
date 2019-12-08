@@ -9,7 +9,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/myDrinks", function(req, res) {
-    var userId = 1;
+    var userId = req.user.id;
     // console.log(db.cabinet);
     db.cabinet
       .findAll({
@@ -26,16 +26,16 @@ module.exports = function(app) {
         console.log("usersCabinet is: ");
         console.log(usersCabinet);
         db.drink
-        //Return all the drinks that contain the first ingredient in the user's cabinet
-        // .findAll({
+          //Return all the drinks that contain the first ingredient in the user's cabinet
+          // .findAll({
           //   where: {
-        //     strIngredients: db.sequelize.where(
-        //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
-        //       "LIKE",
-        //       "%" + usersCabinet[0] + "%"
-        //     )
-        //   }
-        // })
+          //     strIngredients: db.sequelize.where(
+          //       db.sequelize.fn("LOWER", db.sequelize.col("strIngredients")),
+          //       "LIKE",
+          //       "%" + usersCabinet[0] + "%"
+          //     )
+          //   }
+          // })
 
           //Finds and returns all the drinks that contain one of the user's first three ingredients in their cabinet
           // .findAll({
@@ -176,16 +176,25 @@ module.exports = function(app) {
   // });
 
   app.post("/api/addIngredient", function(req, res) {
-    console.log("It ran! req is: ");
-    console.log(req.body);
-    console.log("res is: ");
-    console.log(res);
-    var newIngredient = {
-      ingredients: req.body.ingredients,
-      userId: 1
-    };
-    db.cabinet.create(newIngredient).then(function(data) {
-      res.json(data);
-    });
+    db.cabinet
+      .findAll({
+        where: {
+          ingredients: req.body.ingredients,
+          userId: req.user.id
+        }
+      })
+      .then(function(dbCabinet) {
+        if (dbCabinet.length === 0) {
+          var newIngredient = {
+            ingredients: req.body.ingredients,
+            userId: req.user.id
+          };
+          db.cabinet.create(newIngredient).then(function(data) {
+            res.json(data);
+          });
+        } else {
+          res.json("Already Added!");
+        }
+      });
   });
 };

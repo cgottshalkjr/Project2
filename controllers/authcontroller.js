@@ -69,7 +69,7 @@ exports.shelf = function(req, res) {
         db.cabinet
           .findAll({
             where: {
-              userId: "1"
+              userId: req.user.id
             }
           })
           .then(function(response) {
@@ -77,6 +77,7 @@ exports.shelf = function(req, res) {
             // console.log(response);
             hbsObject.cabinet = new Set(response.map(item => item.dataValues.ingredients));
             console.log(hbsObject.cabinet);
+            
             res.render("shelf", hbsObject);
           });
       });
