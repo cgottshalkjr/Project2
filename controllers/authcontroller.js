@@ -29,6 +29,27 @@ exports.dashboard = function(req, res) {
   }
 };
 
+exports.faves = function(req, res) {
+  if (req.user) {
+    db.user
+      .findOne({
+        where: {
+          id: req.user.id
+        }
+      })
+      .then(function(dbUser) {
+        var hbsObject = {
+          user: req.user,
+          username: dbUser.username,
+          firstname: dbUser.firstname,
+          lastname: dbUser.lastname,
+          image: dbUser.image
+        };
+        res.render("faves", hbsObject);
+      });
+  }
+};
+
 exports.shelf = function(req, res) {
   if (req.user) {
     db.user
@@ -45,7 +66,19 @@ exports.shelf = function(req, res) {
           lastname: dbUser.lastname,
           image: dbUser.image
         };
-        res.render("shelf", hbsObject);
+        db.cabinet
+          .findAll({
+            where: {
+              userId: "1"
+            }
+          })
+          .then(function(response) {
+            console.log("+++++++++++++++++++++++++");
+            // console.log(response);
+            hbsObject.cabinet = new Set(response.map(item => item.dataValues.ingredients));
+            console.log(hbsObject.cabinet);
+            res.render("shelf", hbsObject);
+          });
       });
   }
 };

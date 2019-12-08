@@ -1,104 +1,58 @@
-<body>
-    <div class="sidenav">
-        <!-- figure out the page href to put where the # sign is-->
-        <center>
-            <h3 class="text-warning">Welcome, {{firstname}} {{lastname}}</h3>
-            <div>
-                <img height="150" width="auto" src="{{image}}">
-            </div>
-            <br>
-            <a class="btn btn-outline-warning btn-sm" href="/dashboard" id="navBtn">Home</a>
-            <br>
-            <a class="btn btn-outline-warning btn-sm" href="/shelf" id="navBtn">Shelf</a>
-            <br>
-            <a class="btn btn-outline-warning btn-sm" href="/faves" id="navBtn">Faves</a>
-            <br>
-            <a class="btn btn-outline-warning btn-sm" href="/signin" id="navBtn">Log Out</a>
-        </center>
-    </div>
-    <div class="container">
+{{> navbar}}
+    <div class="container mainContainer">
         <div class="jumbotron jumbotron-fluid" width="50">
         </div>
-    </div>
-    <div class="container">
         <div class="row">
-            <div class="col" id="searchInput">
-                <div>
-                    <form class="form">
-                        <input class="form" type="search" placeholder="Search" aria-label="Search" id="addNew">
-                        <button class="btn btn-lg btn-warning" id="addBtn">Add</button>
-                    </form>
-                </div>
-            </div>
-            <div class="col">
-                <div class="scrollable">
-                    <div id="shelfcard" class="card" style="width: 35rem;">
-                        <div class="card-header">
-                            Your Shelf
+            <div class="col-md-12">
+                <div id="shelfcard" class="card">
+                    <div class="card-header">
+                        Your Shelf
+                        <div class="shelfSearch">
+                            <form class="form">
+                                <input class="form" type="search" placeholder="Add" aria-label="Search" id="addNew">
+                                <button class="btn btn-lg btn-warning" id="addBtn">Add</button>
+                            </form>
                         </div>
-                        <ul class="list-group list-group-flush" id="itemlist">
+                    </div>
+                    <div class="card-body scrollable shelfBody">
+                        <ul>
+                            {{#each cabinet}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+
+                    </div>
+                    {{!-- <ul class="list-group list-group-flush" id="itemlist">
                             {{#each liquors}}
-                            <li class="list-group-item pl-5" data-id="{{id}}">{{ingredients}}</li>
+                            <li class="list-group-item pl-5" data-id="{{id}}">{{strIngredients}}</li>
                             {{/each}}
                             <span><button type="button" id="searchBtn" class="btn btn-lg btn-outline-warning">Search
                                     Recipes</button></span>
-                        </ul>
+                        </ul> --}}
+                        <span><button type="button" id="searchBtn" class="btn btn-lg btn-outline-warning">Search
+                                    Recipes</button></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">drink</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" id="recipe-div">drink recipe</p>
+                        <a href="/faves" class="btn btn-primary">Add to Favorites</a>
                     </div>
                 </div>
-          </div>
-<div class = "container">
-    <div class= "row">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">drink</h5>
-    <p class="card-text">drink recipe</p>
-    <a href="/faves" class="btn btn-primary">Add to Favorites</a>
-  </div>
-  </div>
-</div>
-</div>
-</body>
+            </div>
+        </div>
+    </div>
+
 <style>
-    .addBtn {
-        float: right;
-        width: 50px;
-        
-    }
-    .btn {
-        margin: 0 auto;
-        padding: 10px;
-        margin-bottom: 10px;
-        margin-top: 75px;
-        align-items: center;
-        margin-right: 30px;
-    }
-    h1 {
-        text-align: center;
-    }
-    .card {
-        margin: 0 auto;
-        float: none;
-        width: 24%;
-        height: 300px;
-    }
-    .scrollable {
-        overflow-y: auto;
-        max-height: 500px;
-    }
-    .card-header {
-        font-size: 40px;
-    }
-    .form {
-        width: 95%;
-        margin-top: 50px;
-        height: 50px;
-    }
-    .col {
-        margin-top: 50px;
-        margin: 0 auto;
-        padding: 30px;
-    }
+   
+
     body {
         background-image: url(https://images.squarespace-cdn.com/content/v1/5ccc970f7046802e565771ae/1561494405888-DX2W32LSA8I0WYDK0MQN/ke17ZwdGBToddI8pDm48kDVEj010BbXsLnm509AHjVF7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UWiOgHWyWfC8BdxC_WuXfvhWFtDdzCpB3PJsO8_z2e5f_W3y_yy4MVWH39a9Q36QsA/SCB-COVER-BARS.jpg?format=2500w);
         background-position: center;
@@ -107,9 +61,3 @@
         font-family: 'Francois One', sans-serif;
     }
 </style>
-
-
-
-
-
-
