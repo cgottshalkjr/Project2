@@ -8,16 +8,16 @@
 
 <div class="container mainContainer">
     <div class="row">
-        <div class="col-md-12">
-            <div class="card text-center">
+        <div class="offset-2 col-md-8">
+            <div class="card text-center" id="shelfCard2">
                 <div class="card-header">
-                    <span class="shelfHeader">Your Shelf</span>
-                    <div class="card-body shelfBody">
+                    <span class="shelfHeader">Your Favorites</span>
+                    <div class="card-body scrollable shelfBody">
                         {{#each favorites}}
                         <h3>{{strDrink}}</h3>
                         <p>{{strIngredients}}</p>
                         <p>{{strInstructions}}</p>
-                        <img src="{{strDrinkThumb}}" />
+                        <img src="{{strDrinkThumb}}" class="shelfImg" />
                         <hr />
                         {{/each}}
                     </div>
