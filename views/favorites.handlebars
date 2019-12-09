@@ -1,0 +1,37 @@
+{{> navbar}}
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid" width="50">
+    </div>
+</div>
+
+
+<div class="container mainContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <span class="shelfHeader">Your Shelf</span>
+                    <div class="card-body shelfBody">
+                        {{#each favorites}}
+                        <h3>{{strDrink}}</h3>
+                        <p>{{strIngredients}}</p>
+                        <p>{{strInstructions}}</p>
+                        <img src="{{strDrinkThumb}}" />
+                        <hr />
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</div>

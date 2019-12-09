@@ -22,12 +22,12 @@ module.exports = function(app) {
       msg: "Welcome!"
     });
   });
-  app.get("/faves", function(req, res) {
-    //db.Example.findAll({}).then(function(dbExamples) {
-    res.render("faves", {
-      msg: "Welcome!"
-    });
-  });
+  // app.get("/favorites", function(req, res) {
+  //   //db.Example.findAll({}).then(function(dbExamples) {
+  //   res.render("favorites", {
+  //     msg: "Welcome!"
+  //   });
+  // });
 
   app.get("/", function(req, res) {
     res.render("signup");
