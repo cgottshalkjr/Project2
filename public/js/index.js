@@ -75,19 +75,15 @@ $("#searchBtn").on("click", function(event) {
 });
 //--------------------------------------------------------------------------------------------------------
 //this is the onclick function for the delete button
-$(".deleteBtn").on("click", function(event) {
+$("#deleteBtn").on("click", function(event) {
   event.preventDefault();
   var id = $(this).data("id");
 
   console.log("delete button was clicked");
   // Send the DELETE request.
-  $.ajax("/api/addIngredient/" + id, {
-    type: "DELETE"
-  }).then(function() {
-    console.log("delete", id);
-    // Reload the page to get the updated list
-    location.reload();
-  });
+  $(document).on('click', '.delete', function() {
+    $(this).parent().remove();
+});
 });
 
 // $(document).ready(function() {
