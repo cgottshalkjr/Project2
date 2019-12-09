@@ -15,18 +15,20 @@
                     </div>
                 </div>
                 <div class="card-body scrollable shelfBody">
-                    <ul>
+                    <ul id="list">
                         {{#each cabinet}}
                         <li>{{this}}<button class="btn delete-from-shelf ml-5" data-id="{{id}}">
-                            X
+                           X
                         </button></li>
                         {{/each}}
                     </ul>
 
                 </div>
+                <center>
                 <span><button type="button" id="searchBtn" class="btn btn-lg btn-warning m-3">Search
                         Recipes</button></span>
-                        <span><button type="button" id="deleteBtn" class="btn btn-lg btn-outline-warning">Clear</button></span>
+            <span><button type="button" id="deleteBtn" class="btn btn-lg btn-warning">Clear</button></span>
+            </center>
             </div>
         </div>
     </div>
@@ -38,7 +40,7 @@
                     <span class="shelfHeader">Cocktail Recipes</span>
                 </div>
                 <div class="card-body scrollable shelfBody text-center">
-                    <p class="card-text" id="recipe-div">drink recipe</p>
+                    <p class="card-text" id="recipe-div">Drink recipe:</p>
                 </div>
             </div>
         </div>
