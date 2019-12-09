@@ -76,22 +76,30 @@ $("#searchBtn").on("click", function (event) {
   });
 });
 
-// //this is the onclick function for the delete button
-// $(".deleteBtn").on("click", function (event) {
-//   event.preventDefault();
-//   var id = $(this).data("id");
+//this is the onclick function for the delete button
+$("#deleteBtn").on("click", function (event) {
+  event.preventDefault();
+  var id = $(this).data("id");
 
-//   console.log("delete button was clicked");
-//   // Send the DELETE request.
-//   $.ajax("/api/addIngredient/" + id, {
-//     type: "DELETE"
-//   }).then(function () {
-//     console.log("delete", id);
-//     // Reload the page to get the updated list
-//     location.reload();
-//   });
-// });
+  console.log("delete button was clicked");
+  // Send the DELETE request.
+  $(document).on('click', '.delete-from-shelf', function() {
+    $(this).parent().remove();
+    $.ajax("/api/shelf", {
+      type: "DELETE",
+      url: "/api/shelf" + id
+    }).then(function (res){
+      console.log("Item Deleted")
+      console.log(res)
+      res.end();
+    })
+    
+});
+});
+// end of delete button function
 
+
+//add to favorites
 $(document).on("click", ".add-to-faves", function (event) {
   event.preventDefault;
   
@@ -106,14 +114,14 @@ $(document).on("click", ".add-to-faves", function (event) {
   });
 });
 
-$(".delete-from-shelf").on("click", function (event) {
-  event.preventDefault();
-  var itemId = $(this).data("id");
-  $.ajax({
-      type: "DELETE",
-      url: "/shelf" + itemId
-  }).then(function () {
-      res.end();
-  });
-});
+// $(".delete-from-shelf").on("click", function (event) {
+//   event.preventDefault();
+//   var itemId = $(this).data("id");
+//   $.ajax({
+//       type: "DELETE",
+//       url: "/api/shelf" + itemId
+//   }).then(function () {
+//       res.end();
+//   });
+// });
 
