@@ -106,7 +106,7 @@ $(document).on("click", ".add-to-faves", function (event) {
   });
 });
 
-$(".delete-from-shelf").on("click", function (event) {
+$(document).on("click", ".delete-from-shelf", function (event) {
   event.preventDefault();
   var itemId = $(this).data("id");
   $.ajax({
@@ -116,4 +116,3 @@ $(".delete-from-shelf").on("click", function (event) {
       res.end();
   });
 });
-
