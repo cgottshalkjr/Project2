@@ -18,8 +18,8 @@ Once you are in the site click `start` or `shelf` start to add ingredients to th
 
 ### Pictures of App in Action!
 
-
-![SignUp Page](images/img1.png "Sign Up")
+p
+![SignUp Page](../images/img1.png "Sign Up")
 **View of Sign Up Page**
 ---
 ---
@@ -27,7 +27,7 @@ Once you are in the site click `start` or `shelf` start to add ingredients to th
 **View of Shelf Page**
 ---
 ---
-![Recipe on Shelf Page](../../public/images/img3.png "Recipes")
+![Recipe on Shelf Page](../../../public/images/img3.png "Recipes")
 **View of Recipes on Shelf Page**
 
 
