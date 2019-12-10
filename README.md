@@ -8,25 +8,25 @@ ___
 
 
 
-### INSTRUCTIONS 
----
-Navigate your way to the sign in page at the top of this readme. We have created a user login for you to test `Username: GuestLogin` `Password: guest` 
+### INSTRUCTIONS
+===
+Navigate your way to the sign in page at the top of this readme. We have created a user login 
+for you to test `Username: GuestLogin` `Password: guest` 
 Or create a whole new account for yourself. If you do make sure the photo field is supplied with a link to a `jpg` or `png` file. 
-Once  you are in the site click `start` or `shelf` start to add ingredients to the shelf. 
-Once you have your ingredients click `Search Recipes`. This will return all the recipes you can make with what you have in your shelf. If you see one you like, click the `Add to Favorites` button and then navigate your way to `Faves` and they will always be stored in our database.
+Once you are in the site click `start` or `shelf` start to add ingredients to the shelf. Once you have your ingredients click `Search Recipes`. This will return all the recipes you can make with what you have in your shelf. If you see one you like, click the `Add to Favorites` button and then navigate your way to `Faves` and they will always be stored in our database.
 ---
 
 ### Pictures of App in Action!
 ---
-![SignUp Page](../images/img1.png "Sign Up")
+![SignUp Page](../../images/img1.png "Sign Up")
 **View of Sign Up Page**
 ---
 ---
-![Shelf Page](../images/img2.jpg "Search")
+![Shelf Page](../../images/img2.jpg "Search")
 **View of Shelf Page**
 ---
 ---
-![Recipe on Shelf Page](../images/img3.jpg "Recipes")
+![Recipe on Shelf Page](../../images/img3.jpg "Recipes")
 **View of Recipes on Shelf Page**
 
 
