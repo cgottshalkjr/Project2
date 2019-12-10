@@ -19,11 +19,11 @@ Once you are in the site click `start` or `shelf` start to add ingredients to th
 ### Pictures of App in Action!
 
 
-![SignUp Page](/img1.png "Sign Up")
+![SignUp Page](public/images/img1.png "Sign Up")
 **View of Sign Up Page**
 ---
 ---
-![Shelf Page](img2.png "Search")
+![Shelf Page](public/images/img2.png "Search")
 **View of Shelf Page**
 ---
 ---
