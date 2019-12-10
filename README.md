@@ -18,16 +18,16 @@ Once you are in the site click `start` or `shelf` start to add ingredients to th
 
 ### Pictures of App in Action!
 
-p
-![SignUp Page](../images/img1.png "Sign Up")
+
+![SignUp Page](/img1.png "Sign Up")
 **View of Sign Up Page**
 ---
 ---
-![Shelf Page](../../images/img2.png "Search")
+![Shelf Page](img2.png "Search")
 **View of Shelf Page**
 ---
 ---
-![Recipe on Shelf Page](../../../public/images/img3.png "Recipes")
+![Recipe on Shelf Page](public/images/img3.png "Recipes")
 **View of Recipes on Shelf Page**
 
 
