@@ -35,7 +35,12 @@ module.exports = function(app) {
               // If we've done a search for every favorite the user has saved
               if (favRecipes.length === dbFavorites.length) {
                 var hbsObject = {
-                  favorites: favRecipes
+                  favorites: favRecipes,
+                  user: req.user,
+                  username: req.user.username,
+                  firstname: req.user.firstname,
+                  lastname: req.user.lastname,
+                  image: req.user.image
                 };
                 console.log(hbsObject);
                 res.render("favorites", hbsObject);
