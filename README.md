@@ -8,8 +8,8 @@ ___
 
 
 
-### INSTRUCTIONS
-===
+### INSTRUCTIONS 
+
 Navigate your way to the sign in page at the top of this readme. We have created a user login 
 for you to test `Username: GuestLogin` `Password: guest` 
 Or create a whole new account for yourself. If you do make sure the photo field is supplied with a link to a `jpg` or `png` file. 
@@ -17,16 +17,17 @@ Once you are in the site click `start` or `shelf` start to add ingredients to th
 ---
 
 ### Pictures of App in Action!
----
-![SignUp Page](../../images/img1.png "Sign Up")
+
+
+![SignUp Page](/img1.png "Sign Up")
 **View of Sign Up Page**
 ---
 ---
-![Shelf Page](../../images/img2.jpg "Search")
+![Shelf Page](../img2.jpg "Search")
 **View of Shelf Page**
 ---
 ---
-![Recipe on Shelf Page](../../images/img3.jpg "Recipes")
+![Recipe on Shelf Page](../../../images/img3.jpg "Recipes")
 **View of Recipes on Shelf Page**
 
 
