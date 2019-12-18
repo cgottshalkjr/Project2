@@ -22,6 +22,16 @@ module.exports = function(app) {
       .then(function(dbFavorites) {
         console.log(dbFavorites);
         var favRecipes = [];
+        if (dbFavorites.length === 0) {
+          var hbsObject = {
+            user: req.user,
+            username: req.user.username,
+            firstname: req.user.firstname,
+            lastname: req.user.lastname,
+            image: req.user.image
+          };
+          res.render("favorites", hbsObject);
+        }
         for (var i = 0; i < dbFavorites.length; i++) {
           db.drink
             .findAll({
