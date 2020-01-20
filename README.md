@@ -1,6 +1,6 @@
 ___
 # FREE SPIRITS
-[LINK TO OUR SITE!!!](https://sheltered-wildwood-33791.herokuapp.com/)
+[LINK TO OUR SITE!!!](https://freespirits.herokuapp.com/)
 ___
 >Created by **Christopher Gottshalk**, **Leah Kurtz**, **Aliesa Jackson**, **Melissa Knapp**
 ---
